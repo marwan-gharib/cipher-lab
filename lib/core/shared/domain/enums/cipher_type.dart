@@ -1,0 +1,4 @@
+enum CipherType {
+  caesar,
+  vigenere;
+}
