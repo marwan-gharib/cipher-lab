@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "CipherX"
+  },
+  "home": {
+    "title": "مختبر التشفير",
+    "subtitle": "خوارزميات التشفير الكلاسيكية",
+    "chooseCipher": "اختر خوارزمية",
+    "caesar": {
+      "title": "شفرة قيصر",
+      "description": "تشفير الاستبدال أحادي الإزاحة باستخدام تدوير الأبجدية"
+    },
+    "vigenere": {
+      "title": "شفرة فيجينير",
+      "description": "تشفير متعدد الأبجديات باستخدام مصفوفة Tabula Recta ثنائية الأبعاد"
+    }
+  },
+  "caesar": {
+    "title": "شفرة قيصر",
+    "inputLabel": "النص العادي / المشفر",
+    "inputHint": "أدخل النص للتشفير أو فك التشفير...",
+    "shiftLabel": "قيمة الإزاحة",
+    "encrypt": "تشفير",
+    "decrypt": "فك التشفير",
+    "bruteForce": "القوة الغاشمة",
+    "result": "النتيجة",
+    "clearInput": "مسح",
+    "copyResult": "نسخ",
+    "copied": "تم النسخ إلى الحافظة!",
+    "errorEmptyInput": "الرجاء إدخال نص أولاً.",
+    "errorInvalidInput": "المدخلات تحتوي على أحرف غير صالحة للغة المختارة.",
+    "bruteForceTitle": "جميع الإزاحات الممكنة",
+    "shiftPrefix": "إزاحة"
+  },
+  "vigenere": {
+    "title": "شفرة فيجينير",
+    "inputLabel": "النص العادي / المشفر",
+    "inputHint": "أدخل النص للتشفير أو فك التشفير...",
+    "keyLabel": "مفتاح التشفير",
+    "keyHint": "أدخل المفتاح (أحرف فقط)...",
+    "encrypt": "تشفير",
+    "decrypt": "فك التشفير",
+    "result": "النتيجة",
+    "clearInput": "مسح",
+    "copyResult": "نسخ",
+    "copied": "تم النسخ إلى الحافظة!",
+    "errorEmptyInput": "الرجاء إدخال نص أولاً.",
+    "errorEmptyKey": "الرجاء إدخال مفتاح التشفير.",
+    "errorInvalidInput": "المدخلات تحتوي على أحرف غير صالحة للغة المختارة.",
+    "errorInvalidKey": "المفتاح يحتوي على أحرف غير صالحة للغة المختارة.",
+    "tabulaRecta": "مصفوفة تابولا ريكتا",
+    "stepByStep": "خطوة بخطوة",
+    "stepTitle": "خطوات التشفير",
+    "stepRow": "صف المفتاح",
+    "stepCol": "عمود النص",
+    "stepResult": "النتيجة",
+    "showTable": "إظهار الجدول",
+    "hideTable": "إخفاء الجدول"
+  },
+  "common": {
+    "english": "الإنجليزية",
+    "arabic": "العربية",
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح",
+    "back": "رجوع",
+    "launch": "ابدأ ←"
+  }
+}

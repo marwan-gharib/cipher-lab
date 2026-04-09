@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "CipherX"
+  },
+  "home": {
+    "title": "Encryption Lab",
+    "subtitle": "Classical Cipher Algorithms",
+    "chooseCipher": "Choose an Algorithm",
+    "caesar": {
+      "title": "Caesar Cipher",
+      "description": "Single-shift substitution cipher using alphabet rotation"
+    },
+    "vigenere": {
+      "title": "Vigenère Cipher",
+      "description": "Polyalphabetic cipher using a 2D Tabula Recta matrix"
+    }
+  },
+  "caesar": {
+    "title": "Caesar Cipher",
+    "inputLabel": "Plaintext / Ciphertext",
+    "inputHint": "Enter text to encrypt or decrypt...",
+    "shiftLabel": "Shift Value",
+    "encrypt": "Encrypt",
+    "decrypt": "Decrypt",
+    "bruteForce": "Brute Force",
+    "result": "Result",
+    "clearInput": "Clear",
+    "copyResult": "Copy",
+    "copied": "Copied to clipboard!",
+    "errorEmptyInput": "Please enter some text first.",
+    "errorInvalidInput": "Input contains invalid characters for selected language.",
+    "bruteForceTitle": "All Possible Shifts",
+    "shiftPrefix": "Shift"
+  },
+  "vigenere": {
+    "title": "Vigenère Cipher",
+    "inputLabel": "Plaintext / Ciphertext",
+    "inputHint": "Enter text to encrypt or decrypt...",
+    "keyLabel": "Encryption Key",
+    "keyHint": "Enter key (letters only)...",
+    "encrypt": "Encrypt",
+    "decrypt": "Decrypt",
+    "result": "Result",
+    "clearInput": "Clear",
+    "copyResult": "Copy",
+    "copied": "Copied to clipboard!",
+    "errorEmptyInput": "Please enter some text first.",
+    "errorEmptyKey": "Please enter an encryption key.",
+    "errorInvalidInput": "Input contains invalid characters for selected language.",
+    "errorInvalidKey": "Key contains invalid characters for selected language.",
+    "tabulaRecta": "Tabula Recta",
+    "stepByStep": "Step-by-Step",
+    "stepTitle": "Encryption Steps",
+    "stepRow": "Key Row",
+    "stepCol": "Text Column",
+    "stepResult": "Result",
+    "showTable": "Show Table",
+    "hideTable": "Hide Table"
+  },
+  "common": {
+    "english": "English",
+    "arabic": "Arabic",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "back": "Back",
+    "launch": "Launch →"
+  }
+}
