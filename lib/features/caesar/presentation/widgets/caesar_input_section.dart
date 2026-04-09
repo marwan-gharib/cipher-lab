@@ -30,8 +30,7 @@ class _CaesarInputSectionState extends State<CaesarInputSection> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<CaesarCubit, CaesarState>(
-      listenWhen: (prev, next) =>
-          prev.input != next.input && next.input.isEmpty,
+      listenWhen: (prev, next) => prev != next && next.input.isEmpty,
       listener: (context, state) {
         if (state.input.isEmpty && _controller.text.isNotEmpty) {
           _controller.clear();
@@ -61,29 +60,37 @@ class _CaesarInputSectionState extends State<CaesarInputSection> {
 
   Widget _buildActionRow(BuildContext context) {
     final t = context.t;
-    return Row(
+    return Column(
+      spacing: AppSpacing.sm,
       children: [
-        Expanded(
-          child: NeonButton(
-            label: t.caesar.encrypt,
-            icon: Icons.lock_rounded,
-            onPressed: () =>
-                context.read<CaesarCubit>().encrypt(widget.language),
-            color: context.cyberColors.neonCyan,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          spacing: AppSpacing.sm,
+          children: [
+            Expanded(
+              child: NeonButton(
+                width: double.infinity,
+                label: t.caesar.encrypt,
+                icon: Icons.lock_rounded,
+                onPressed: () =>
+                    context.read<CaesarCubit>().encrypt(widget.language),
+                color: context.cyberColors.neonCyan,
+              ),
+            ),
+            Expanded(
+              child: NeonButton(
+                width: double.infinity,
+                label: t.caesar.decrypt,
+                icon: Icons.lock_open_rounded,
+                onPressed: () =>
+                    context.read<CaesarCubit>().decrypt(widget.language),
+                color: context.cyberColors.neonPurple,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(width: AppSpacing.sm),
-        Expanded(
-          child: NeonButton(
-            label: t.caesar.decrypt,
-            icon: Icons.lock_open_rounded,
-            onPressed: () =>
-                context.read<CaesarCubit>().decrypt(widget.language),
-            color: context.cyberColors.neonPurple,
-          ),
-        ),
-        const SizedBox(width: AppSpacing.sm),
         NeonButton(
+          width: double.infinity,
           label: t.caesar.bruteForce,
           icon: Icons.search_rounded,
           onPressed: () =>

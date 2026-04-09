@@ -35,14 +35,13 @@ class _CipherSelectionCardState extends State<CipherSelectionCard>
   late AnimationController _controller;
   late Animation<double> _scaleAnim;
   late Animation<double> _fadeAnim;
-  bool _isHovered = false;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 2000),
     );
     _scaleAnim = Tween<double>(begin: 0.8, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.elasticOut),
@@ -54,6 +53,17 @@ class _CipherSelectionCardState extends State<CipherSelectionCard>
     Future<void>.delayed(widget.delay, () {
       if (mounted) _controller.forward();
     });
+  }
+
+  @override
+  void didUpdateWidget(covariant CipherSelectionCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.delay != widget.delay) {
+      _controller.reset();
+      Future<void>.delayed(widget.delay, () {
+        if (mounted) _controller.forward();
+      });
+    }
   }
 
   @override
@@ -74,41 +84,35 @@ class _CipherSelectionCardState extends State<CipherSelectionCard>
       opacity: _fadeAnim,
       child: ScaleTransition(
         scale: _scaleAnim,
-        child: MouseRegion(
-          onEnter: (_) => setState(() => _isHovered = true),
-          onExit: (_) => setState(() => _isHovered = false),
-          child: GestureDetector(
-            onTap: _navigate,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppRadius.xl),
-                boxShadow: [
-                  BoxShadow(
-                    color:
-                        widget.color.withValues(alpha: _isHovered ? 0.5 : 0.2),
-                    blurRadius: _isHovered ? 30 : 15,
-                    spreadRadius: _isHovered ? 4 : 1,
-                  ),
-                ],
-              ),
-              child: GlassmorphicContainer(
-                borderRadius: AppRadius.xl,
-                borderColor:
-                    widget.color.withValues(alpha: _isHovered ? 0.8 : 0.4),
-                padding: const EdgeInsets.all(AppSpacing.xl),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildIconHeader(),
-                    const SizedBox(height: AppSpacing.lg),
-                    _buildTitle(),
-                    const SizedBox(height: AppSpacing.sm),
-                    _buildDescription(),
-                    const SizedBox(height: AppSpacing.lg),
-                    _buildLaunchRow(),
-                  ],
+        child: GestureDetector(
+          onTap: _navigate,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppRadius.xl),
+              boxShadow: [
+                BoxShadow(
+                  color: widget.color.withValues(alpha: 0.2),
+                  blurRadius: 15,
+                  spreadRadius: 1,
                 ),
+              ],
+            ),
+            child: GlassmorphicContainer(
+              borderRadius: AppRadius.xl,
+              borderColor: widget.color.withValues(alpha: 0.4),
+              padding: const EdgeInsets.all(AppSpacing.xl),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildIconHeader(),
+                  const SizedBox(height: AppSpacing.lg),
+                  _buildTitle(),
+                  const SizedBox(height: AppSpacing.sm),
+                  _buildDescription(),
+                  const SizedBox(height: AppSpacing.lg),
+                  _buildLaunchRow(),
+                ],
               ),
             ),
           ),

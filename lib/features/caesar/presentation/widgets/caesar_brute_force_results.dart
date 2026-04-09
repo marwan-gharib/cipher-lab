@@ -64,8 +64,11 @@ class CaesarBruteForceResults extends StatelessWidget {
                   Expanded(
                     child: Text(
                       result.output,
-                      style: context.cyberText.cipherSmall
-                          .copyWith(color: context.colorScheme.onSurface),
+                      style: context.cyberText.cipherSmall.copyWith(
+                        color: context.colorScheme.onSurface,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],

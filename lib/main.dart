@@ -38,9 +38,8 @@ class CipherXApp extends StatelessWidget {
     return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, themeState) {
         return BlocConsumer<LocaleCubit, LocaleState>(
-          listenWhen: (prev, next) => prev.language != next.language,
+          listenWhen: (prev, next) => prev != next,
           listener: (context, localeState) {
-            // Update slang locale when cubit state changes
             LocaleSettings.setLocaleRaw(localeState.language.localeCode);
           },
           builder: (context, localeState) {

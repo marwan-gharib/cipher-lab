@@ -23,38 +23,18 @@ class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 6),
+      duration: const Duration(seconds: 3),
     )..repeat(reverse: true);
 
-    _topAlignment = TweenSequence<Alignment>([
-      TweenSequenceItem(
-        tween:
-            AlignmentTween(begin: Alignment.topLeft, end: Alignment.topRight),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween:
-            AlignmentTween(begin: Alignment.topRight, end: Alignment.topLeft),
-        weight: 1,
-      ),
-    ]).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _topAlignment = AlignmentTween(
+      begin: Alignment.topLeft,
+      end: Alignment.topRight,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
-    _bottomAlignment = TweenSequence<Alignment>([
-      TweenSequenceItem(
-        tween: AlignmentTween(
-          begin: Alignment.bottomRight,
-          end: Alignment.bottomLeft,
-        ),
-        weight: 1,
-      ),
-      TweenSequenceItem(
-        tween: AlignmentTween(
-          begin: Alignment.bottomLeft,
-          end: Alignment.bottomRight,
-        ),
-        weight: 1,
-      ),
-    ]).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _bottomAlignment = AlignmentTween(
+      begin: Alignment.bottomRight,
+      end: Alignment.bottomLeft,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -68,14 +48,19 @@ class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, child) => Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: _topAlignment.value,
             end: _bottomAlignment.value,
             colors: [
               context.colorScheme.surface,
-              context.colorScheme.surfaceContainerHigh,
-              const Color(0xFF0D1B3E),
+              context.colorScheme.surface,
+              context.isDarkMode
+                  ? context.cyberColors.neonPurple
+                  : context.cyberColors.neonCyan,
+              context.colorScheme.surface,
               context.colorScheme.surface,
             ],
           ),

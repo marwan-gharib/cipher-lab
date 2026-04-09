@@ -81,6 +81,7 @@ class _NeonTextFieldState extends State<NeonTextField> {
             : [],
       ),
       child: TextField(
+        onTapOutside: (_) => FocusScope.of(context).unfocus(),
         controller: widget.controller,
         focusNode: _focusNode,
         maxLines: widget.maxLines,

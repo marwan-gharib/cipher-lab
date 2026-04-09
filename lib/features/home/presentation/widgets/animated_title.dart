@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
+import 'blinking_cursor.dart';
 
 class AnimatedTitle extends StatefulWidget {
   const AnimatedTitle({super.key, required this.text, required this.style});
@@ -67,44 +68,8 @@ class _AnimatedTitleState extends State<AnimatedTitle> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(_displayed, style: widget.style),
-        _BlinkingCursor(color: context.cyberColors.neonCyan),
+        BlinkingCursor(color: context.cyberColors.neonCyan),
       ],
-    );
-  }
-}
-
-class _BlinkingCursor extends StatefulWidget {
-  const _BlinkingCursor({required this.color});
-  final Color color;
-
-  @override
-  State<_BlinkingCursor> createState() => _BlinkingCursorState();
-}
-
-class _BlinkingCursorState extends State<_BlinkingCursor>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 600),
-    )..repeat(reverse: true);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _controller,
-      child: Text('|', style: TextStyle(color: widget.color, fontSize: 28, fontWeight: FontWeight.w900)),
     );
   }
 }
