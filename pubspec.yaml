@@ -21,6 +21,7 @@ dependencies:
   slang: ^4.9.0
   slang_flutter: ^4.9.0
   equatable: ^2.0.8
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:

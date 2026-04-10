@@ -70,5 +70,8 @@
     "lightMode": "Light Mode",
     "back": "Back",
     "launch": "Launch →"
+  },
+  "errors": {
+    "cache": "Unable to save your preferences."
   }
 }

@@ -46,6 +46,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final TranslationsCaesarEn caesar = TranslationsCaesarEn._(_root);
 	late final TranslationsVigenereEn vigenere = TranslationsVigenereEn._(_root);
 	late final TranslationsCommonEn common = TranslationsCommonEn._(_root);
+	late final TranslationsErrorsEn errors = TranslationsErrorsEn._(_root);
 }
 
 // Path: app
@@ -261,6 +262,18 @@ class TranslationsCommonEn {
 	String get launch => 'Launch →';
 }
 
+// Path: errors
+class TranslationsErrorsEn {
+	TranslationsErrorsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Unable to save your preferences.'
+	String get cache => 'Unable to save your preferences.';
+}
+
 // Path: home.caesar
 class TranslationsHomeCaesarEn {
 	TranslationsHomeCaesarEn._(this._root);
@@ -355,6 +368,7 @@ extension on Translations {
 			'common.lightMode' => 'Light Mode',
 			'common.back' => 'Back',
 			'common.launch' => 'Launch →',
+			'errors.cache' => 'Unable to save your preferences.',
 			_ => null,
 		};
 	}
