@@ -17,7 +17,7 @@ class _BlinkingCursorState extends State<BlinkingCursor>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 400),
     )..repeat(reverse: true);
   }
 
@@ -29,9 +29,8 @@ class _BlinkingCursorState extends State<BlinkingCursor>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      opacity: _controller.value,
-      duration: const Duration(milliseconds: 600),
+    return FadeTransition(
+      opacity: _controller,
       child: Text(
         '|',
         style: TextStyle(

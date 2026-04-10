@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/shared/domain/enums/app_language.dart';
-import '../../../../core/shared/presentation/widgets/neon_button.dart';
-import '../../../../core/shared/presentation/widgets/neon_text_field.dart';
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
+import '../../../../core/shared/widgets/neon_button.dart';
+import '../../../../core/shared/widgets/neon_text_field.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../cubits/caesar/caesar_cubit.dart';
 import '../cubits/caesar/caesar_state.dart';
@@ -60,44 +60,62 @@ class _CaesarInputSectionState extends State<CaesarInputSection> {
 
   Widget _buildActionRow(BuildContext context) {
     final t = context.t;
-    return Column(
-      spacing: AppSpacing.sm,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return BlocBuilder<CaesarCubit, CaesarState>(
+      buildWhen: (prev, next) =>
+          prev.isAnimating != next.isAnimating ||
+          prev.isBruteForceAnimating != next.isBruteForceAnimating ||
+          prev.bruteForceResults.isEmpty != next.bruteForceResults.isEmpty,
+      builder: (context, state) {
+        final anyAnimating = state.isAnimating || state.isBruteForceAnimating;
+        final hasResults = state.bruteForceResults.isNotEmpty;
+        return Column(
           spacing: AppSpacing.sm,
           children: [
-            Expanded(
-              child: NeonButton(
-                width: double.infinity,
-                label: t.caesar.encrypt,
-                icon: Icons.lock_rounded,
-                onPressed: () =>
-                    context.read<CaesarCubit>().encrypt(widget.language),
-                color: context.cyberColors.neonCyan,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: AppSpacing.sm,
+              children: [
+                Expanded(
+                  child: NeonButton(
+                    width: double.infinity,
+                    label: t.caesar.encrypt,
+                    icon: Icons.lock_rounded,
+                    onPressed: anyAnimating
+                        ? null
+                        : () => context
+                            .read<CaesarCubit>()
+                            .encrypt(widget.language),
+                    color: context.cyberColors.neonCyan,
+                  ),
+                ),
+                Expanded(
+                  child: NeonButton(
+                    width: double.infinity,
+                    label: t.caesar.decrypt,
+                    icon: Icons.lock_open_rounded,
+                    onPressed: anyAnimating
+                        ? null
+                        : () => context
+                            .read<CaesarCubit>()
+                            .decrypt(widget.language),
+                    color: context.cyberColors.neonPurple,
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: NeonButton(
-                width: double.infinity,
-                label: t.caesar.decrypt,
-                icon: Icons.lock_open_rounded,
-                onPressed: () =>
-                    context.read<CaesarCubit>().decrypt(widget.language),
-                color: context.cyberColors.neonPurple,
-              ),
+            NeonButton(
+              width: double.infinity,
+              label: t.caesar.bruteForce,
+              icon: Icons.search_rounded,
+              onPressed: (anyAnimating || hasResults)
+                  ? null
+                  : () =>
+                      context.read<CaesarCubit>().bruteForce(widget.language),
+              color: context.cyberColors.neonGreen,
             ),
           ],
-        ),
-        NeonButton(
-          width: double.infinity,
-          label: t.caesar.bruteForce,
-          icon: Icons.search_rounded,
-          onPressed: () =>
-              context.read<CaesarCubit>().bruteForce(widget.language),
-          color: context.cyberColors.neonGreen,
-        ),
-      ],
+        );
+      },
     );
   }
 }

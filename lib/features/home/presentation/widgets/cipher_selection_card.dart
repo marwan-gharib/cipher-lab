@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/shared/domain/enums/cipher_type.dart';
-import '../../../../core/shared/presentation/widgets/glassmorphic_container.dart';
+import '../../../../core/shared/widgets/glassmorphic_container.dart';
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
 import '../../../../core/theme/app_radius.dart';
 import '../../../../core/theme/app_spacing.dart';

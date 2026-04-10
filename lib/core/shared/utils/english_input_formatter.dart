@@ -2,7 +2,8 @@ import 'package:flutter/services.dart';
 
 class EnglishInputFormatter extends TextInputFormatter {
   const EnglishInputFormatter();
-  static final RegExp _allowed = RegExp(r'[A-Za-z\s]');
+  static final RegExp _allowed =
+      RegExp(r'[^a-zA-Z\p{L}]|[a-zA-Z\s]', unicode: true);
 
   @override
   TextEditingValue formatEditUpdate(

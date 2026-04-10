@@ -9,6 +9,7 @@ class CaesarState extends Equatable {
     this.result,
     this.bruteForceResults = const [],
     this.isAnimating = false,
+    this.isBruteForceAnimating = false,
     this.animatedOutput = '',
     this.errorMessage,
   });
@@ -18,6 +19,7 @@ class CaesarState extends Equatable {
   final CaesarResult? result;
   final List<CaesarResult> bruteForceResults;
   final bool isAnimating;
+  final bool isBruteForceAnimating;
   final String animatedOutput;
   final String? errorMessage;
 
@@ -27,6 +29,7 @@ class CaesarState extends Equatable {
     CaesarResult? result,
     List<CaesarResult>? bruteForceResults,
     bool? isAnimating,
+    bool? isBruteForceAnimating,
     String? animatedOutput,
     String? errorMessage,
     bool clearResult = false,
@@ -40,6 +43,8 @@ class CaesarState extends Equatable {
       bruteForceResults:
           clearBruteForce ? [] : bruteForceResults ?? this.bruteForceResults,
       isAnimating: isAnimating ?? this.isAnimating,
+      isBruteForceAnimating:
+          isBruteForceAnimating ?? this.isBruteForceAnimating,
       animatedOutput: animatedOutput ?? this.animatedOutput,
       errorMessage: clearError ? null : errorMessage ?? this.errorMessage,
     );
@@ -52,6 +57,7 @@ class CaesarState extends Equatable {
         result,
         bruteForceResults,
         isAnimating,
+        isBruteForceAnimating,
         animatedOutput,
         errorMessage,
       ];

@@ -104,6 +104,12 @@ class DarkTheme {
 
   static final InputDecorationTheme _inputDecorationTheme =
       InputDecorationTheme(
+    contentPadding: const EdgeInsetsDirectional.only(
+      start: 12,
+      end: 40,
+      top: 20,
+      bottom: 12,
+    ),
     filled: true,
     fillColor: AppColors.glassBlack,
     border: OutlineInputBorder(

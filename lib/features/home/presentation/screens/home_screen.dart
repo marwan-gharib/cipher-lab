@@ -5,8 +5,8 @@ import '../../../../core/shared/cubits/locale/locale_cubit.dart';
 import '../../../../core/shared/cubits/locale/locale_state.dart';
 import '../../../../core/shared/domain/enums/app_language.dart';
 import '../../../../core/shared/domain/enums/cipher_type.dart';
-import '../../../../core/shared/presentation/widgets/animated_gradient_background.dart';
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
+import '../../../../core/shared/widgets/animated_gradient_background.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../widgets/animated_title.dart';
 import '../widgets/cipher_selection_card.dart';
@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget {
           body: AnimatedGradientBackground(
             child: SafeArea(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(AppSpacing.lg),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

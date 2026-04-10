@@ -26,14 +26,19 @@ class CaesarCubit extends Cubit<CaesarState> {
           clearResult: true,
           clearError: true,
           clearBruteForce: true,
+          isBruteForceAnimating: false,
         ),
       );
 
-  void updateShift(int value) => emit(state.copyWith(shift: value));
-
-  void clearAll() => emit(const CaesarState());
-
-  void onLanguageChanged() => emit(const CaesarState());
+  void updateShift(int value) => emit(
+        state.copyWith(
+          shift: value,
+          clearResult: true,
+          clearError: true,
+          clearBruteForce: true,
+          isBruteForceAnimating: false,
+        ),
+      );
 
   Future<void> encrypt(AppLanguage language) async {
     if (state.input.trim().isEmpty) {
@@ -90,11 +95,38 @@ class CaesarCubit extends Cubit<CaesarState> {
       emit(state.copyWith(errorMessage: 'emptyInput'));
       return;
     }
-    emit(state.copyWith(clearError: true, clearResult: true));
 
-    final results =
-        _bruteForceUseCase.call(ciphertext: state.input, language: language);
-    emit(state.copyWith(bruteForceResults: results));
+    emit(
+      state.copyWith(
+        clearError: true,
+        clearResult: true,
+        clearBruteForce: true,
+        isBruteForceAnimating: true,
+      ),
+    );
+
+    final results = _bruteForceUseCase.call(
+      ciphertext: state.input,
+      language: language,
+    );
+
+    emit(
+      state.copyWith(
+        bruteForceResults: results,
+      ),
+    );
+
+    if (results.isNotEmpty) {
+      final totalAnimationTime = Duration(
+        milliseconds: (results.length *
+                AppConstants.bruteForceStaggerDelay.inMilliseconds) +
+            AppConstants.bruteForceItemDuration.inMilliseconds,
+      );
+
+      await Future<void>.delayed(totalAnimationTime);
+    }
+
+    emit(state.copyWith(isBruteForceAnimating: false));
   }
 
   Future<void> _animateOutput(String output) async {
@@ -102,7 +134,7 @@ class CaesarCubit extends Cubit<CaesarState> {
     for (final char in output.split('')) {
       animated += char;
       emit(state.copyWith(animatedOutput: animated));
-      await Future<void>.delayed(AppConstants.letterAnimationDelay);
+      await Future<void>.delayed(AppConstants.caeserLetterAnimationDelay);
     }
   }
 }

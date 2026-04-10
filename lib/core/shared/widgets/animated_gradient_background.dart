@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/extensions/context_extensions.dart';
+import '../utils/extensions/context_extensions.dart';
 
 class AnimatedGradientBackground extends StatefulWidget {
   const AnimatedGradientBackground({super.key, required this.child});
@@ -67,7 +67,7 @@ class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
         ),
         child: child,
       ),
-      child: widget.child,
+      child: RepaintBoundary(child: widget.child),
     );
   }
 }

@@ -1,42 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
+import '../cubits/vigenere/vigenere_cubit.dart';
 
 class TabulaRectaCell extends StatelessWidget {
   const TabulaRectaCell({
     super.key,
     required this.letter,
+    required this.rowIdx,
+    required this.colIdx,
     this.isRowHeader = false,
     this.isColHeader = false,
-    this.isHighlighted = false,
-    this.isRowHighlighted = false,
-    this.isColHighlighted = false,
   });
 
   final String letter;
+  final int rowIdx;
+  final int colIdx;
   final bool isRowHeader;
   final bool isColHeader;
-  final bool isHighlighted;
-  final bool isRowHighlighted;
-  final bool isColHighlighted;
 
   @override
   Widget build(BuildContext context) {
+    final isRowHighlighted = context.select<VigenereCubit, bool>(
+      (cubit) =>
+          cubit.state.isAnimating && cubit.state.highlightedRow == rowIdx,
+    );
+    final isColHighlighted = context.select<VigenereCubit, bool>(
+      (cubit) =>
+          cubit.state.isAnimating && cubit.state.highlightedCol == colIdx,
+    );
+    final isHighlighted = context.select<VigenereCubit, bool>(
+      (cubit) =>
+          cubit.state.isAnimating &&
+          cubit.state.highlightedRow == rowIdx &&
+          cubit.state.highlightedCol == colIdx,
+    );
+
     Color? bgColor;
     if (isRowHeader) {
       bgColor = context.cyberColors.neonPurple.withValues(alpha: 0.2);
-    }
-    if (isColHeader) {
+    } else if (isColHeader) {
       bgColor = context.cyberColors.neonCyan.withValues(alpha: 0.2);
-    }
-    if (isRowHighlighted) {
-      bgColor = context.cyberColors.tableRowHighlight;
-    }
-    if (isColHighlighted) {
-      bgColor = context.cyberColors.tableColHighlight;
-    }
-    if (isHighlighted) {
-      bgColor = context.cyberColors.tableCellHighlight;
+    } else {
+      if (isHighlighted) {
+        bgColor = context.cyberColors.tableCellHighlight;
+      } else if (isRowHighlighted) {
+        bgColor = context.cyberColors.tableRowHighlight;
+      } else if (isColHighlighted) {
+        bgColor = context.cyberColors.tableColHighlight;
+      }
     }
 
     return Container(
@@ -53,7 +66,7 @@ class TabulaRectaCell extends StatelessWidget {
       child: Text(
         letter.toUpperCase(),
         style: context.cyberText.cipherSmall.copyWith(
-          fontSize: 10,
+          fontSize: 12,
           color: (isRowHeader || isColHeader || isHighlighted)
               ? Colors.white
               : context.colorScheme.onSurface.withValues(alpha: 0.7),

@@ -1,77 +1,86 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/shared/domain/enums/app_language.dart';
 import '../../../../core/theme/app_spacing.dart';
+import '../cubits/vigenere/vigenere_cubit.dart';
+import '../cubits/vigenere/vigenere_state.dart';
 import 'tabula_recta_cell.dart';
 
 class TabulaRectaTable extends StatelessWidget {
   const TabulaRectaTable({
     super.key,
-    required this.table,
     required this.language,
-    this.highlightedRow = -1,
-    this.highlightedCol = -1,
   });
 
-  final List<List<String>> table;
   final AppLanguage language;
-  final int highlightedRow;
-  final int highlightedCol;
 
   @override
   Widget build(BuildContext context) {
-    if (table.isEmpty) return const SizedBox.shrink();
+    return BlocBuilder<VigenereCubit, VigenereState>(
+      buildWhen: (prev, next) => prev.showTable != next.showTable,
+      builder: (context, state) {
+        if (!state.showTable || state.tabulaRecta.isEmpty) {
+          return const SizedBox.shrink();
+        }
 
-    final alphabet = language.alphabet;
+        final table = state.tabulaRecta;
+        final alphabet = language.alphabet;
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.sm),
-          child: Column(
-            children: [
-              // Column headers
-              Row(
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(AppSpacing.sm),
+              child: Column(
                 children: [
-                  const TabulaRectaCell(letter: '', isColHeader: true),
+                  Row(
+                    children: [
+                      const TabulaRectaCell(
+                        letter: '',
+                        isColHeader: true,
+                        rowIdx: -1,
+                        colIdx: -1,
+                      ),
+                      ...List.generate(
+                        alphabet.length,
+                        (i) => TabulaRectaCell(
+                          letter: alphabet[i],
+                          isColHeader: true,
+                          rowIdx: -1,
+                          colIdx: i,
+                        ),
+                      ),
+                    ],
+                  ),
                   ...List.generate(
-                    alphabet.length,
-                    (i) => TabulaRectaCell(
-                      letter: alphabet[i],
-                      isColHeader: true,
-                      isColHighlighted: i == highlightedCol,
+                    table.length,
+                    (rowIdx) => Row(
+                      children: [
+                        TabulaRectaCell(
+                          letter: alphabet[rowIdx],
+                          isRowHeader: true,
+                          rowIdx: rowIdx,
+                          colIdx: -1,
+                        ),
+                        ...List.generate(
+                          table[rowIdx].length,
+                          (colIdx) => TabulaRectaCell(
+                            letter: table[rowIdx][colIdx],
+                            rowIdx: rowIdx,
+                            colIdx: colIdx,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-              // Filter & rows
-              ...List.generate(
-                table.length,
-                (rowIdx) => Row(
-                  children: [
-                    TabulaRectaCell(
-                      letter: alphabet[rowIdx],
-                      isRowHeader: true,
-                      isRowHighlighted: rowIdx == highlightedRow,
-                    ),
-                    ...List.generate(
-                      table[rowIdx].length,
-                      (colIdx) => TabulaRectaCell(
-                        letter: table[rowIdx][colIdx],
-                        isHighlighted: rowIdx == highlightedRow &&
-                            colIdx == highlightedCol,
-                        isRowHighlighted: rowIdx == highlightedRow,
-                        isColHighlighted: colIdx == highlightedCol,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

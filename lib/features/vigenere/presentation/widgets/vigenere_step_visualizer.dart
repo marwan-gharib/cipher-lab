@@ -1,68 +1,93 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/shared/presentation/widgets/glassmorphic_container.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/shared/widgets/glassmorphic_container.dart';
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
 import '../../../../core/theme/app_spacing.dart';
+import '../cubits/vigenere/vigenere_cubit.dart';
+import '../cubits/vigenere/vigenere_state.dart';
 
 class VigenereStepVisualizer extends StatelessWidget {
-  const VigenereStepVisualizer({
-    super.key,
-    required this.inputChar,
-    required this.keyChar,
-    required this.outputChar,
-  });
-
-  final String inputChar;
-  final String keyChar;
-  final String outputChar;
+  const VigenereStepVisualizer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (inputChar.isEmpty) return const SizedBox.shrink();
+    return BlocBuilder<VigenereCubit, VigenereState>(
+      buildWhen: (prev, next) =>
+          prev.isAnimating != next.isAnimating ||
+          prev.currentStepIndex != next.currentStepIndex ||
+          prev.result != next.result,
+      builder: (context, state) {
+        if (!state.isAnimating ||
+            state.currentStepIndex < 0 ||
+            state.result == null) {
+          return const SizedBox.shrink();
+        }
 
-    return GlassmorphicContainer(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      borderColor: context.cyberColors.neonPurple.withValues(alpha: 0.5),
-      child: Column(
-        children: [
-          Text(
-            context.t.vigenere.stepTitle,
-            style: context.textTheme.labelLarge,
-          ),
-          const SizedBox(height: AppSpacing.md),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+        final step = state.result!.steps[state.currentStepIndex];
+        final inputChar = step.inputChar;
+        final keyChar = step.keyChar;
+        final outputChar = step.outputChar;
+        final isEncrypt = state.result!.isEncrypt;
+
+        if (inputChar.isEmpty) return const SizedBox.shrink();
+
+        return GlassmorphicContainer(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          borderColor: context.cyberColors.neonPurple.withValues(alpha: 0.5),
+          child: Column(
             children: [
-              _buildStepItem(
-                context,
-                context.t.vigenere.stepCol,
-                inputChar,
-                context.cyberColors.neonCyan,
+              Text(
+                isEncrypt
+                    ? context.t.vigenere.stepTitleEncrypt
+                    : context.t.vigenere.stepTitleDecrypt,
+                style: context.textTheme.labelLarge,
               ),
-              Icon(
-                Icons.add,
-                color: context.colorScheme.onSurface.withValues(alpha: 0.6),
-              ),
-              _buildStepItem(
-                context,
-                context.t.vigenere.stepRow,
-                keyChar,
-                context.cyberColors.neonPurple,
-              ),
-              Icon(
-                Icons.arrow_forward,
-                color: context.colorScheme.onSurface.withValues(alpha: 0.6),
-              ),
-              _buildStepItem(
-                context,
-                context.t.vigenere.stepResult,
-                outputChar,
-                context.cyberColors.neonGreen,
+              const SizedBox(height: AppSpacing.md),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _buildStepItem(
+                    context,
+                    isEncrypt
+                        ? context.t.vigenere.stepCol
+                        : context.t.vigenere.stepResult,
+                    inputChar,
+                    isEncrypt
+                        ? context.cyberColors.neonCyan
+                        : context.cyberColors.neonGreen,
+                  ),
+                  Icon(
+                    isEncrypt ? Icons.add : Icons.remove,
+                    color: context.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
+                  _buildStepItem(
+                    context,
+                    context.t.vigenere.stepRow,
+                    keyChar,
+                    context.cyberColors.neonPurple,
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: context.colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
+                  _buildStepItem(
+                    context,
+                    isEncrypt
+                        ? context.t.vigenere.stepResult
+                        : context.t.vigenere.stepCol,
+                    outputChar,
+                    isEncrypt
+                        ? context.cyberColors.neonGreen
+                        : context.cyberColors.neonCyan,
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/shared/domain/enums/app_language.dart';
-import '../../../../core/shared/presentation/widgets/animated_gradient_background.dart';
+import '../../../../core/shared/widgets/animated_gradient_background.dart';
 import '../../../../core/shared/utils/extensions/context_extensions.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../cubits/caesar/caesar_cubit.dart';
@@ -25,7 +25,7 @@ class CaesarScreen extends StatelessWidget {
       ),
       body: AnimatedGradientBackground(
         child: SafeArea(
-          child: BlocConsumer<CaesarCubit, CaesarState>(
+          child: BlocListener<CaesarCubit, CaesarState>(
             listener: (context, state) {
               if (state.errorMessage != null) {
                 final message = switch (state.errorMessage) {
@@ -36,31 +36,23 @@ class CaesarScreen extends StatelessWidget {
                 context.showSnackBar(message, isError: true);
               }
             },
-            builder: (context, state) {
-              return SingleChildScrollView(
-                padding: const EdgeInsets.all(AppSpacing.lg),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CaesarInputSection(language: language),
-                    const SizedBox(height: AppSpacing.xl),
-                    CaesarShiftSlider(
-                      alphabetLength: language.alphabetLength,
-                    ),
-                    const SizedBox(height: AppSpacing.xl),
-                    CaesarResultDisplay(
-                      result: state.result?.output,
-                      isAnimating: state.isAnimating,
-                      animatedOutput: state.animatedOutput,
-                    ),
-                    const SizedBox(height: AppSpacing.xl),
-                    CaesarBruteForceResults(
-                      results: state.bruteForceResults,
-                    ),
-                  ],
-                ),
-              );
-            },
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CaesarInputSection(language: language),
+                  const SizedBox(height: AppSpacing.xl),
+                  CaesarShiftSlider(
+                    alphabetLength: language.alphabetLength,
+                  ),
+                  const SizedBox(height: AppSpacing.xl),
+                  const CaesarResultDisplay(),
+                  const SizedBox(height: AppSpacing.xl),
+                  const CaesarBruteForceResults(),
+                ],
+              ),
+            ),
           ),
         ),
       ),

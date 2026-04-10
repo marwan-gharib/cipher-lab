@@ -14,6 +14,7 @@ class VigenereState extends Equatable {
     this.isAnimating = false,
     this.animatedOutput = '',
     this.showTable = false,
+    this.shouldAnimate = true,
     this.errorMessage,
   });
 
@@ -27,6 +28,7 @@ class VigenereState extends Equatable {
   final bool isAnimating;
   final String animatedOutput;
   final bool showTable;
+  final bool shouldAnimate;
   final String? errorMessage;
 
   VigenereState copyWith({
@@ -40,6 +42,7 @@ class VigenereState extends Equatable {
     bool? isAnimating,
     String? animatedOutput,
     bool? showTable,
+    bool? shouldAnimate,
     String? errorMessage,
     bool clearResult = false,
     bool clearError = false,
@@ -55,6 +58,7 @@ class VigenereState extends Equatable {
       isAnimating: isAnimating ?? this.isAnimating,
       animatedOutput: animatedOutput ?? this.animatedOutput,
       showTable: showTable ?? this.showTable,
+      shouldAnimate: shouldAnimate ?? this.shouldAnimate,
       errorMessage: clearError ? null : errorMessage ?? this.errorMessage,
     );
   }
@@ -71,6 +75,7 @@ class VigenereState extends Equatable {
         isAnimating,
         animatedOutput,
         showTable,
+        shouldAnimate,
         errorMessage,
       ];
 }

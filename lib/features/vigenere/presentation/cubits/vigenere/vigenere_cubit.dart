@@ -5,21 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constants/app_constants.dart';
 import '../../../../../core/shared/domain/enums/app_language.dart';
 import '../../../domain/entities/vigenere_result.dart';
-import '../../../domain/usecases/build_tabula_recta_usecase.dart';
-import '../../../domain/usecases/vigenere_decrypt_usecase.dart';
-import '../../../domain/usecases/vigenere_encrypt_usecase.dart';
+import '../../../domain/usecases/vigenere_cipher_usecase.dart';
 import 'vigenere_state.dart';
 
 class VigenereCubit extends Cubit<VigenereState> {
   VigenereCubit(
-    this._encryptUseCase,
-    this._decryptUseCase,
-    this._buildTableUseCase,
+    this._cipherUseCase,
   ) : super(const VigenereState());
 
-  final VigenereEncryptUseCase _encryptUseCase;
-  final VigenereDecryptUseCase _decryptUseCase;
-  final BuildTabulaRectaUseCase _buildTableUseCase;
+  final VigenereCipherUseCase _cipherUseCase;
 
   void updateInput(String value) => emit(
         state.copyWith(
@@ -35,18 +29,10 @@ class VigenereCubit extends Cubit<VigenereState> {
   void updateKey(String value) =>
       emit(state.copyWith(key: value, clearResult: true, clearError: true));
 
-  void clearAll() => emit(const VigenereState());
+  void toggleShowTable() => emit(state.copyWith(showTable: !state.showTable));
 
-  void onLanguageChanged() => emit(const VigenereState());
-
-  void toggleTable(AppLanguage language) {
-    if (!state.showTable) {
-      final table = _buildTableUseCase(language: language);
-      emit(state.copyWith(showTable: true, tabulaRecta: table));
-    } else {
-      emit(state.copyWith(showTable: false));
-    }
-  }
+  void toggleAnimation(bool value) =>
+      emit(state.copyWith(shouldAnimate: value));
 
   Future<void> encrypt(AppLanguage language) async {
     if (state.input.trim().isEmpty) {
@@ -57,6 +43,7 @@ class VigenereCubit extends Cubit<VigenereState> {
       emit(state.copyWith(errorMessage: 'emptyKey'));
       return;
     }
+
     emit(
       state.copyWith(
         clearError: true,
@@ -68,16 +55,27 @@ class VigenereCubit extends Cubit<VigenereState> {
       ),
     );
 
-    final table = _buildTableUseCase(language: language);
-    final result = _encryptUseCase(
-      plaintext: state.input,
+    final table = language.tabulaRecta;
+    final result = _cipherUseCase(
+      text: state.input,
       key: state.key,
       language: language,
+      isEncrypt: true,
     );
-    emit(state.copyWith(tabulaRecta: table));
+    emit(state.copyWith(tabulaRecta: table, result: result));
 
-    await _animateOutput(result);
-    emit(state.copyWith(result: result, isAnimating: false));
+    if (state.shouldAnimate) {
+      await _animateOutput(result, language);
+    }
+
+    emit(
+      state.copyWith(
+        animatedOutput: result.output,
+        isAnimating: false,
+        highlightedRow: -1,
+        highlightedCol: -1,
+      ),
+    );
   }
 
   Future<void> decrypt(AppLanguage language) async {
@@ -89,6 +87,7 @@ class VigenereCubit extends Cubit<VigenereState> {
       emit(state.copyWith(errorMessage: 'emptyKey'));
       return;
     }
+
     emit(
       state.copyWith(
         clearError: true,
@@ -100,32 +99,58 @@ class VigenereCubit extends Cubit<VigenereState> {
       ),
     );
 
-    final table = _buildTableUseCase(language: language);
-    final result = _decryptUseCase(
-      ciphertext: state.input,
+    final table = language.tabulaRecta;
+    final result = _cipherUseCase(
+      text: state.input,
       key: state.key,
       language: language,
+      isEncrypt: false,
     );
-    emit(state.copyWith(tabulaRecta: table));
+    emit(state.copyWith(tabulaRecta: table, result: result));
 
-    await _animateOutput(result);
-    emit(state.copyWith(result: result, isAnimating: false));
+    if (state.shouldAnimate) {
+      await _animateOutput(result, language);
+    }
+
+    emit(
+      state.copyWith(
+        animatedOutput: result.output,
+        isAnimating: false,
+        highlightedRow: -1,
+        highlightedCol: -1,
+      ),
+    );
   }
 
-  Future<void> _animateOutput(VigenereResult vigenereResult) async {
-    var animated = '';
-    for (var i = 0; i < vigenereResult.steps.length; i++) {
-      final step = vigenereResult.steps[i];
-      animated += step.outputChar;
+  Future<void> _animateOutput(
+    VigenereResult vigenereResult,
+    AppLanguage language,
+  ) async {
+    final animated = StringBuffer();
+
+    final output = vigenereResult.output;
+    int stepIndex = 0;
+    for (int i = 0; i < output.length; i++) {
+      if (!state.shouldAnimate) break;
+
+      if (!language.alphabet.contains(output[i])) {
+        animated.write(output[i]);
+        continue;
+      }
+
+      animated.write(output[i]);
+      final step = vigenereResult.steps[stepIndex];
       emit(
         state.copyWith(
-          animatedOutput: animated,
+          animatedOutput: animated.toString(),
           highlightedRow: step.rowIndex,
           highlightedCol: step.colIndex,
-          currentStepIndex: i,
+          currentStepIndex: stepIndex,
         ),
       );
-      await Future<void>.delayed(AppConstants.letterAnimationDelay);
+
+      await Future<void>.delayed(AppConstants.vigenereLetterAnimationDelay);
+      stepIndex++;
     }
   }
 }

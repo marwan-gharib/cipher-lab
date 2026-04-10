@@ -50,12 +50,14 @@
     "errorInvalidKey": "Key contains invalid characters for selected language.",
     "tabulaRecta": "Tabula Recta",
     "stepByStep": "Step-by-Step",
-    "stepTitle": "Encryption Steps",
+    "stepTitleEncrypt": "Encryption Steps",
+    "stepTitleDecrypt": "Decryption Steps",
     "stepRow": "Key Row",
     "stepCol": "Text Column",
     "stepResult": "Result",
     "showTable": "Show Table",
-    "hideTable": "Hide Table"
+    "hideTable": "Hide Table",
+    "animateResult": "Animate steps"
   },
   "common": {
     "english": "English",

@@ -9,6 +9,11 @@ enum AppLanguage {
         AppLanguage.arabic => AppConstants.arabicAlphabet,
       };
 
+  List<List<String>> get tabulaRecta => switch (this) {
+        AppLanguage.english => AppConstants.englishTabulaRecta,
+        AppLanguage.arabic => AppConstants.arabicTabulaRecta,
+      };
+
   int get alphabetLength => alphabet.length;
 
   String get localeCode => switch (this) {

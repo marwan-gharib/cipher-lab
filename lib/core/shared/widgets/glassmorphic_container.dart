@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../../theme/app_radius.dart';
-import '../../utils/extensions/context_extensions.dart';
+import '../../theme/app_radius.dart';
+import '../utils/extensions/context_extensions.dart';
 
 class GlassmorphicContainer extends StatelessWidget {
   const GlassmorphicContainer({

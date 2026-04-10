@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'core/di/service_locator.dart';
 import 'core/routing/app_router.dart';
 import 'core/shared/cubits/locale/locale_cubit.dart';

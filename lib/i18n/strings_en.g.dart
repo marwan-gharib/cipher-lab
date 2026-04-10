@@ -194,7 +194,10 @@ class TranslationsVigenereEn {
 	String get stepByStep => 'Step-by-Step';
 
 	/// en: 'Encryption Steps'
-	String get stepTitle => 'Encryption Steps';
+	String get stepTitleEncrypt => 'Encryption Steps';
+
+	/// en: 'Decryption Steps'
+	String get stepTitleDecrypt => 'Decryption Steps';
 
 	/// en: 'Key Row'
 	String get stepRow => 'Key Row';
@@ -210,6 +213,9 @@ class TranslationsVigenereEn {
 
 	/// en: 'Hide Table'
 	String get hideTable => 'Hide Table';
+
+	/// en: 'Animate steps'
+	String get animateResult => 'Animate steps';
 }
 
 // Path: common
@@ -317,12 +323,14 @@ extension on Translations {
 			'vigenere.errorInvalidKey' => 'Key contains invalid characters for selected language.',
 			'vigenere.tabulaRecta' => 'Tabula Recta',
 			'vigenere.stepByStep' => 'Step-by-Step',
-			'vigenere.stepTitle' => 'Encryption Steps',
+			'vigenere.stepTitleEncrypt' => 'Encryption Steps',
+			'vigenere.stepTitleDecrypt' => 'Decryption Steps',
 			'vigenere.stepRow' => 'Key Row',
 			'vigenere.stepCol' => 'Text Column',
 			'vigenere.stepResult' => 'Result',
 			'vigenere.showTable' => 'Show Table',
 			'vigenere.hideTable' => 'Hide Table',
+			'vigenere.animateResult' => 'Animate steps',
 			'common.english' => 'English',
 			'common.arabic' => 'Arabic',
 			'common.darkMode' => 'Dark Mode',

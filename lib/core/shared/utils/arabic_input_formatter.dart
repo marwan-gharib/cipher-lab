@@ -2,7 +2,8 @@ import 'package:flutter/services.dart';
 
 class ArabicInputFormatter extends TextInputFormatter {
   const ArabicInputFormatter();
-  static final RegExp _allowed = RegExp(r'[\u0600-\u06FF\s]');
+  static final RegExp _allowed =
+      RegExp(r'[^\u0600-\u06FF\p{L}]|[\u0600-\u06FF\s]', unicode: true);
 
   @override
   TextEditingValue formatEditUpdate(

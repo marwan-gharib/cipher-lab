@@ -107,6 +107,12 @@ class LightTheme {
 
   static final InputDecorationTheme _inputDecorationTheme =
       InputDecorationTheme(
+    contentPadding: const EdgeInsetsDirectional.only(
+      start: 12,
+      end: 40,
+      top: 20,
+      bottom: 12,
+    ),
     filled: true,
     fillColor: AppColors.lightSurfaceVariant,
     border: OutlineInputBorder(
@@ -121,6 +127,8 @@ class LightTheme {
       borderRadius: BorderRadius.circular(AppRadius.md),
       borderSide: const BorderSide(color: AppColors.primaryVariant, width: 2),
     ),
+    hintStyle: AppTextStyles.bodyMedium,
+    labelStyle: AppTextStyles.labelLarge,
   );
 
   static final SnackBarThemeData _snackBarTheme = SnackBarThemeData(
