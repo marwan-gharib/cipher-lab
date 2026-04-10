@@ -2,6 +2,10 @@
   "app": {
     "title": "CipherX"
   },
+  "splash": {
+    "title": "CIPHER LAB",
+    "tagline": "Secure Your Thoughts"
+  },
   "home": {
     "title": "Encryption Lab",
     "subtitle": "Classical Cipher Algorithms",

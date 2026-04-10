@@ -38,6 +38,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 
 	// Translations
 	@override late final _TranslationsAppAr app = _TranslationsAppAr._(_root);
+	@override late final _TranslationsSplashAr splash = _TranslationsSplashAr._(_root);
 	@override late final _TranslationsHomeAr home = _TranslationsHomeAr._(_root);
 	@override late final _TranslationsCaesarAr caesar = _TranslationsCaesarAr._(_root);
 	@override late final _TranslationsVigenereAr vigenere = _TranslationsVigenereAr._(_root);
@@ -52,6 +53,17 @@ class _TranslationsAppAr implements TranslationsAppEn {
 
 	// Translations
 	@override String get title => 'CipherX';
+}
+
+// Path: splash
+class _TranslationsSplashAr implements TranslationsSplashEn {
+	_TranslationsSplashAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'مختبر التشفير';
+	@override String get tagline => 'أمن أفكارك';
 }
 
 // Path: home
@@ -172,6 +184,8 @@ extension on TranslationsAr {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'app.title' => 'CipherX',
+			'splash.title' => 'مختبر التشفير',
+			'splash.tagline' => 'أمن أفكارك',
 			'home.title' => 'مختبر التشفير',
 			'home.subtitle' => 'خوارزميات التشفير الكلاسيكية',
 			'home.chooseCipher' => 'اختر خوارزمية',
