@@ -93,4 +93,8 @@ class AppConstants {
   // UI constants
   static const double appBarElevation = 0;
   static const int maxBruteForceDisplay = 28;
+
+  // Cache keys
+  static const String themeKey = 'theme_mode';
+  static const String languageKey = 'language_code';
 }

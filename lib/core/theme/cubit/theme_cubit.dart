@@ -1,13 +1,38 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../constants/app_constants.dart';
+import '../../error/exceptions/app_exception.dart';
+import '../../error/mappers/error_mapper.dart';
+import '../../local/cache/cache_service.dart';
 import 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit() : super(const ThemeState(isDark: true));
+  ThemeCubit(this._cacheService)
+      : super(
+          ThemeState(
+            isDark: (_cacheService.get(AppConstants.themeKey) as bool?) ?? true,
+          ),
+        );
 
-  void toggleTheme() => emit(ThemeState(isDark: !state.isDark));
+  final CacheService _cacheService;
 
-  void setDark() => emit(const ThemeState(isDark: true));
-
-  void setLight() => emit(const ThemeState(isDark: false));
+  Future<void> toggleTheme() async {
+    final isDark = !state.isDark;
+    try {
+      await _cacheService.setData(key: AppConstants.themeKey, value: isDark);
+      emit(state.copyWith(isDark: isDark, clearError: true));
+    } on AppException catch (e) {
+      emit(
+        state.copyWith(
+          errorMessage: ErrorMapper.mapExceptionToFailure(e).message,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
 }

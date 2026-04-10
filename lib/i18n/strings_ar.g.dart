@@ -43,6 +43,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsCaesarAr caesar = _TranslationsCaesarAr._(_root);
 	@override late final _TranslationsVigenereAr vigenere = _TranslationsVigenereAr._(_root);
 	@override late final _TranslationsCommonAr common = _TranslationsCommonAr._(_root);
+	@override late final _TranslationsErrorsAr errors = _TranslationsErrorsAr._(_root);
 }
 
 // Path: app
@@ -153,6 +154,16 @@ class _TranslationsCommonAr implements TranslationsCommonEn {
 	@override String get launch => 'ابدأ ←';
 }
 
+// Path: errors
+class _TranslationsErrorsAr implements TranslationsErrorsEn {
+	_TranslationsErrorsAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cache => 'تعذر حفظ إعداداتك المفضلة.';
+}
+
 // Path: home.caesar
 class _TranslationsHomeCaesarAr implements TranslationsHomeCaesarEn {
 	_TranslationsHomeCaesarAr._(this._root);
@@ -239,6 +250,7 @@ extension on TranslationsAr {
 			'common.lightMode' => 'الوضع الفاتح',
 			'common.back' => 'رجوع',
 			'common.launch' => 'ابدأ ←',
+			'errors.cache' => 'تعذر حفظ إعداداتك المفضلة.',
 			_ => null,
 		};
 	}
