@@ -41,6 +41,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final TranslationsAppEn app = TranslationsAppEn._(_root);
+	late final TranslationsSplashEn splash = TranslationsSplashEn._(_root);
 	late final TranslationsHomeEn home = TranslationsHomeEn._(_root);
 	late final TranslationsCaesarEn caesar = TranslationsCaesarEn._(_root);
 	late final TranslationsVigenereEn vigenere = TranslationsVigenereEn._(_root);
@@ -57,6 +58,21 @@ class TranslationsAppEn {
 
 	/// en: 'CipherX'
 	String get title => 'CipherX';
+}
+
+// Path: splash
+class TranslationsSplashEn {
+	TranslationsSplashEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'CIPHER LAB'
+	String get title => 'CIPHER LAB';
+
+	/// en: 'Secure Your Thoughts'
+	String get tagline => 'Secure Your Thoughts';
 }
 
 // Path: home
@@ -284,6 +300,8 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'app.title' => 'CipherX',
+			'splash.title' => 'CIPHER LAB',
+			'splash.tagline' => 'Secure Your Thoughts',
 			'home.title' => 'Encryption Lab',
 			'home.subtitle' => 'Classical Cipher Algorithms',
 			'home.chooseCipher' => 'Choose an Algorithm',

@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 
 import '../../features/caesar/di/caesar_di.dart';
 import '../../features/vigenere/di/vigenere_di.dart';
+import '../../features/splash/di/splash_di.dart';
+
 import '../shared/cubits/locale/locale_cubit.dart';
 import '../theme/cubit/theme_cubit.dart';
 
@@ -15,4 +17,5 @@ void setupServiceLocator() {
   // Feature DI
   setupCaesarDi(sl);
   setupVigenereDi(sl);
+  setupSplashDi(sl);
 }
