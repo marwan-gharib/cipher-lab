@@ -4,7 +4,7 @@ import '../../domain/enums/app_language.dart';
 import 'locale_state.dart';
 
 class LocaleCubit extends Cubit<LocaleState> {
-  LocaleCubit() : super(const LocaleState(language: AppLanguage.english));
+  LocaleCubit() : super(LocaleState(language: AppLanguage.fromDeviceLocale()));
 
   void toggleLanguage() {
     final next = state.language == AppLanguage.english

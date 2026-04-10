@@ -18,6 +18,10 @@ class LanguageToggleButton extends StatelessWidget {
       buildWhen: (prev, next) => prev != next,
       builder: (context, state) {
         final isEnglish = state.language == AppLanguage.english;
+        final color = isEnglish
+            ? context.cyberColors.neonCyan
+            : context.cyberColors.neonPurple;
+
         return GestureDetector(
           onTap: () => context.read<LocaleCubit>().toggleLanguage(),
           child: AnimatedSwitcher(
@@ -44,26 +48,33 @@ class LanguageToggleButton extends StatelessWidget {
             },
             child: Container(
               key: ValueKey(state.language),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color: context.cyberColors.neonCyan.withValues(alpha: 0.15),
+                color: color.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(AppRadius.full),
-                border:
-                    Border.all(color: context.cyberColors.neonCyan, width: 1.5),
+                border: Border.all(color: color, width: 1.5),
+                boxShadow: [
+                  BoxShadow(
+                    color: color.withValues(alpha: 0.2),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     FlagEmoji.getFlagEmoji(isEnglish ? 'US' : 'EG'),
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 18),
                   ),
                   const SizedBox(width: AppSpacing.sm),
                   Text(
                     state.language.displayCode,
                     style: context.textTheme.labelMedium?.copyWith(
-                      color: context.cyberColors.neonCyan,
-                      fontWeight: FontWeight.w700,
+                      color: color,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 1.2,
                     ),
                   ),
                 ],
