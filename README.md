@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🔐 CipherX
+# 🔐 CipherX : Advanced Cryptography Visualizer
 
-**A premium Flutter application demonstrating classical encryption algorithms.**
+**A premium, high-performance Flutter application demonstrating classical encryption algorithms with stunning visual fidelity and strict clean architecture.**
 
 [![Flutter Version](https://img.shields.io/badge/Flutter-3.5.0+-02569B?logo=flutter)](https://flutter.dev/)
 [![Dart Version](https://img.shields.io/badge/Dart-3.5.0+-0175C2?logo=dart)](https://dart.dev/)
@@ -16,29 +16,30 @@
 
 ## 📖 Overview
 
-**CipherX** is a beautifully designed, modern Flutter application built to demonstrate and visualize the workings of classical encryption techniques, namely the **Caesar Cipher** and **Vigenère Cipher**. 
+**CipherX** isn't just an encryption app—it is an interactive educational sandbox built to demonstrate how classical ciphers work natively under the hood. Designed strictly following **Clean Architecture** principles, the application serves as an enterprise-grade Flutter blueprint showcasing best practices in BLoC, interactive animations, and structural design.
 
-Designed with a premium user interface and solid architecture, this app serves dual purposes:
-1. A practical tool for encrypting and decrypting messages.
-2. An educational template showcasing Flutter best practices including Clean Architecture, BLoC state management, dynamic theming, and full internationalization (i18n).
+Whether you're exploring the Caesar shift or visualizing the polyalphabetic Tabula Recta of Vigenère, CipherX guarantees an incredibly smooth, responsive experience.
 
 ---
 
-## ✨ Features
+## ✨ Features & Capabilities
 
-- **🛡️ Caesar Cipher:** Interactive encryption and decryption using the classic substitution cipher.
-- **🛡️ Vigenère Cipher:** Advanced polyalphabetic substitution cipher implementation.
-- **🌍 Bilingual Support:** Full support for both **English (LTR)** and **Arabic (RTL)** text, powered by the `slang` package.
-- **🌓 Dynamic Theming:** Seamless switching between Light and Dark modes. The state is cached locally for a persistent experience.
-- **🎨 Premium UI/UX:** Built using custom Google Fonts, smooth transitions, and responsive layout designs.
+- **🛡️ Caesar Cipher Sandbox:** Real-time shifting with brute-force visualization and interactive slider overlays.
+- **🛡️ Vigenère Tabula Recta:** An adaptive, visually animated matrix that walks you through step-by-step polyalphabetic substitution.
+- **🌍 Bilingual Support:** Full integration for **English (LTR)** and **Arabic (RTL)** text via `slang`. Features strict regex input validation bound directly to the active language!
+- **🌓 Adaptive & Eye-Comfort Theming:** 
+  - Dynamic **Light & Dark modes** utilizing fully cached persistent configuration.
+  - Seamlessly animated, dynamic gradient backgrounds tailored to surface lighting.
+  - Deep, comfortable neon accenting (Neon Cyan, Deep Purple, Forest Green) mapped through centralized `AppColors` for gorgeous glassmorphism arrays that completely alleviate eye strain.
+- **⚡ Bulletproof State & Input Handling:** Functional programming error mapping, caching fault-tolerance, and dynamic SnackBar feedback strictly handled through UI layouts.
 
 ---
 
 ## 🛠 Tech Stack & Architecture
 
-CipherX is built following **Clean Architecture** principles and **Feature-First** structural guidelines, ensuring scalability, maintainability, and testing ease.
+CipherX strictly adheres to **Clean Architecture** patterns separated into layered, feature-first directories.
 
-*   **UI & Framework:** [Flutter](https://flutter.dev/)
+*   **UI Framework:** [Flutter](https://flutter.dev/)
 *   **State Management:** [flutter_bloc](https://pub.dev/packages/flutter_bloc) (Cubits)
 *   **Routing:** [go_router](https://pub.dev/packages/go_router)
 *   **Dependency Injection:** [get_it](https://pub.dev/packages/get_it)
@@ -50,60 +51,55 @@ CipherX is built following **Clean Architecture** principles and **Feature-First
 
 ## 📁 Project Structure
 
-The project follows a feature-centric modular structure:
+The project relies on a deeply modular layout to maximize testability and scaling capabilities:
 
 ```text
 lib/
-├── core/                  # Core application-wide infrastructure
-│   ├── constants/         # App-wide constants (colors, text paths)
-│   ├── di/                # Dependency Injection (Service Locator)
-│   ├── routing/           # AppRouter and Route definitions
-│   ├── theme/             # Light & Dark theme configurations
-│   └── shared/            # Shared domains, models, and global cubits
-├── features/              # Feature modules
-│   ├── splash/            # Initial splash view & loading logic
+├── core/                  # Global application infrastructure
+│   ├── error/             # Global failures and caching resilience
+│   ├── di/                # Singleton Service Locator (GetIt)
+│   ├── routing/           # Route Trees (GoRouter)
+│   ├── theme/             # Centralized AppColors & ThemeData Factories
+│   └── shared/            # Shared Domains, Regex Formatters, Global Cubits
+├── features/              # Modularized application features
+│   ├── splash/            # Entry point & boot configurations
 │   ├── home/              # Main dashboard for selecting algorithms
-│   ├── caesar/            # Caesar cipher feature layer (Domain & Presentation)
-│   └── vigenere/          # Vigenère cipher feature layer (Domain & Presentation)
-├── i18n/                  # Translation JSON models & generated files
-└── main.dart              # Application entry point
+│   ├── caesar/            # Caesar feature (Domain logics & Presentation)
+│   └── vigenere/          # Vigenère feature (Tabula Recta animations)
+├── i18n/                  # Slang-generated locale files
+└── main.dart              # App bootstrapping
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these steps to set up the project on your local machine.
+Launch CipherX locally in minutes.
 
 ### Prerequisites
 
 - Flutter SDK `^3.5.0` or higher
 - Dart SDK `^3.5.0` or higher
-- Android Studio / VS Code
 
 ### Installation
 
-1. **Clone the repository** (if applicable):
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/encryption_caeser_vigenere.git
-   ```
-
-2. **Navigate to the project directory:**
-   ```bash
    cd encryption_caeser_vigenere
    ```
 
-3. **Install dependencies:**
+2. **Acquire Packages:**
    ```bash
    flutter pub get
    ```
 
-4. **Generate required files** (for dependency injection or translations via `build_runner`):
+3. **Generate Dependencies:**
    ```bash
    dart run build_runner build --delete-conflicting-outputs
    ```
 
-5. **Run the App:**
+4. **Launch Application:**
    ```bash
    flutter run
    ```
@@ -112,17 +108,16 @@ Follow these steps to set up the project on your local machine.
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! 
-Feel free to check the [issues page](#) if you want to contribute.
+We welcome structural improvements, new algorithm integrations, and optimizations!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feature/StunningVisualizer`)
+3. Commit your Changes (`git commit -m 'feat: Add stunning visualizer'`)
+4. Push to the Branch (`git push origin feature/StunningVisualizer`)
 5. Open a Pull Request
 
 ---
 
 <div align="center">
-  <i>Built with ❤️ using Flutter.</i>
+  <i>Engineered with clean code and built with ❤️ using Flutter.</i>
 </div>

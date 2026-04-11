@@ -8,60 +8,60 @@
   },
   "home": {
     "title": "Encryption Lab",
-    "subtitle": "Classical Cipher Algorithms",
-    "chooseCipher": "Choose an Algorithm",
+    "subtitle": "Pick a way to lock your message",
+    "chooseCipher": "How do you want to lock it?",
     "caesar": {
-      "title": "Caesar Cipher",
-      "description": "Single-shift substitution cipher using alphabet rotation"
+      "title": "Caesar Code",
+      "description": "Locks your message using a number — each letter shifts by that many steps"
     },
     "vigenere": {
-      "title": "Vigenère Cipher",
-      "description": "Polyalphabetic cipher using a 2D Tabula Recta matrix"
+      "title": "Vigenère Code",
+      "description": "Locks your message using a secret word — much harder to crack than a number"
     }
   },
   "caesar": {
-    "title": "Caesar Cipher",
-    "inputLabel": "Plaintext / Ciphertext",
-    "inputHint": "Enter text to encrypt or decrypt...",
-    "shiftLabel": "Shift Value",
+    "title": "Caesar Code",
+    "inputLabel": "Your Message",
+    "inputHint": "Type the message you want to encrypt or decrypt...",
+    "shiftLabel": "Select Lock Number",
     "encrypt": "Encrypt",
     "decrypt": "Decrypt",
-    "bruteForce": "Brute Force",
+    "bruteForce": "Don't Know the Number?",
     "result": "Result",
     "clearInput": "Clear",
     "copyResult": "Copy",
-    "copied": "Copied to clipboard!",
-    "errorEmptyInput": "Please enter some text first.",
-    "errorInvalidInput": "Input contains invalid characters for selected language.",
-    "bruteForceTitle": "All Possible Shifts",
-    "shiftPrefix": "Shift"
+    "copied": "Copied!",
+    "errorEmptyInput": "Please type a message first.",
+    "errorInvalidInput": "Your message has characters that don't work with the selected language.",
+    "bruteForceTitle": "All Possible Results",
+    "shiftPrefix": "Lock No."
   },
   "vigenere": {
-    "title": "Vigenère Cipher",
-    "inputLabel": "Plaintext / Ciphertext",
-    "inputHint": "Enter text to encrypt or decrypt...",
-    "keyLabel": "Encryption Key",
-    "keyHint": "Enter key (letters only)...",
+    "title": "Vigenère Code",
+    "inputLabel": "Your Message",
+    "inputHint": "Type the message you want to encrypt or decrypt...",
+    "keyLabel": "Secret Word",
+    "keyHint": "Enter your secret word (letters only)...",
     "encrypt": "Encrypt",
     "decrypt": "Decrypt",
     "result": "Result",
     "clearInput": "Clear",
     "copyResult": "Copy",
-    "copied": "Copied to clipboard!",
-    "errorEmptyInput": "Please enter some text first.",
-    "errorEmptyKey": "Please enter an encryption key.",
-    "errorInvalidInput": "Input contains invalid characters for selected language.",
-    "errorInvalidKey": "Key contains invalid characters for selected language.",
-    "tabulaRecta": "Tabula Recta",
-    "stepByStep": "Step-by-Step",
+    "copied": "Copied!",
+    "errorEmptyInput": "Please type a message first.",
+    "errorEmptyKey": "Please enter your secret word.",
+    "errorInvalidInput": "Your message has characters that don't work with the selected language.",
+    "errorInvalidKey": "Secret word must contains only letters.",
+    "tabulaRecta": "Letter Matching Table",
+    "stepByStep": "How was it locked?",
     "stepTitleEncrypt": "Encryption Steps",
     "stepTitleDecrypt": "Decryption Steps",
-    "stepRow": "Key Row",
-    "stepCol": "Text Column",
-    "stepResult": "Result",
+    "stepRow": "Secret Word Letter",
+    "stepCol": "Message Letter",
+    "stepResult": "Output",
     "showTable": "Show Table",
     "hideTable": "Hide Table",
-    "animateResult": "Animate steps"
+    "animateResult": "Show step by step"
   },
   "common": {
     "english": "English",
@@ -69,9 +69,9 @@
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode",
     "back": "Back",
-    "launch": "Launch →"
+    "launch": "Let's Go →"
   },
   "errors": {
-    "cache": "Unable to save your preferences."
+    "cache": "Couldn't save your preferences."
   }
 }

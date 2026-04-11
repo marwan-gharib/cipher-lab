@@ -7,6 +7,7 @@ class CyberColors extends ThemeExtension<CyberColors> {
     required this.neonGreen,
     required this.neonPink,
     required this.glassWhite,
+    required this.backgroundGradientColor,
     required this.glassWhiteStrong,
     required this.glassBorder,
     required this.glassBlack,
@@ -20,6 +21,7 @@ class CyberColors extends ThemeExtension<CyberColors> {
   final Color neonGreen;
   final Color neonPink;
   final Color glassWhite;
+  final Color backgroundGradientColor;
   final Color glassWhiteStrong;
   final Color glassBorder;
   final Color glassBlack;
@@ -34,6 +36,7 @@ class CyberColors extends ThemeExtension<CyberColors> {
     Color? neonGreen,
     Color? neonPink,
     Color? glassWhite,
+    Color? backgroundGradientColor,
     Color? glassWhiteStrong,
     Color? glassBorder,
     Color? glassBlack,
@@ -47,6 +50,8 @@ class CyberColors extends ThemeExtension<CyberColors> {
       neonGreen: neonGreen ?? this.neonGreen,
       neonPink: neonPink ?? this.neonPink,
       glassWhite: glassWhite ?? this.glassWhite,
+      backgroundGradientColor:
+          backgroundGradientColor ?? this.backgroundGradientColor,
       glassWhiteStrong: glassWhiteStrong ?? this.glassWhiteStrong,
       glassBorder: glassBorder ?? this.glassBorder,
       glassBlack: glassBlack ?? this.glassBlack,
@@ -65,6 +70,11 @@ class CyberColors extends ThemeExtension<CyberColors> {
       neonGreen: Color.lerp(neonGreen, other.neonGreen, t)!,
       neonPink: Color.lerp(neonPink, other.neonPink, t)!,
       glassWhite: Color.lerp(glassWhite, other.glassWhite, t)!,
+      backgroundGradientColor: Color.lerp(
+        backgroundGradientColor,
+        other.backgroundGradientColor,
+        t,
+      )!,
       glassWhiteStrong:
           Color.lerp(glassWhiteStrong, other.glassWhiteStrong, t)!,
       glassBorder: BorderSide.lerp(

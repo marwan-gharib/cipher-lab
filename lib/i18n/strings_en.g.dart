@@ -87,11 +87,11 @@ class TranslationsHomeEn {
 	/// en: 'Encryption Lab'
 	String get title => 'Encryption Lab';
 
-	/// en: 'Classical Cipher Algorithms'
-	String get subtitle => 'Classical Cipher Algorithms';
+	/// en: 'Pick a way to lock your message'
+	String get subtitle => 'Pick a way to lock your message';
 
-	/// en: 'Choose an Algorithm'
-	String get chooseCipher => 'Choose an Algorithm';
+	/// en: 'How do you want to lock it?'
+	String get chooseCipher => 'How do you want to lock it?';
 
 	late final TranslationsHomeCaesarEn caesar = TranslationsHomeCaesarEn._(_root);
 	late final TranslationsHomeVigenereEn vigenere = TranslationsHomeVigenereEn._(_root);
@@ -105,17 +105,17 @@ class TranslationsCaesarEn {
 
 	// Translations
 
-	/// en: 'Caesar Cipher'
-	String get title => 'Caesar Cipher';
+	/// en: 'Caesar Code'
+	String get title => 'Caesar Code';
 
-	/// en: 'Plaintext / Ciphertext'
-	String get inputLabel => 'Plaintext / Ciphertext';
+	/// en: 'Your Message'
+	String get inputLabel => 'Your Message';
 
-	/// en: 'Enter text to encrypt or decrypt...'
-	String get inputHint => 'Enter text to encrypt or decrypt...';
+	/// en: 'Type the message you want to encrypt or decrypt...'
+	String get inputHint => 'Type the message you want to encrypt or decrypt...';
 
-	/// en: 'Shift Value'
-	String get shiftLabel => 'Shift Value';
+	/// en: 'Select Lock Number'
+	String get shiftLabel => 'Select Lock Number';
 
 	/// en: 'Encrypt'
 	String get encrypt => 'Encrypt';
@@ -123,8 +123,8 @@ class TranslationsCaesarEn {
 	/// en: 'Decrypt'
 	String get decrypt => 'Decrypt';
 
-	/// en: 'Brute Force'
-	String get bruteForce => 'Brute Force';
+	/// en: 'Don't Know the Number?'
+	String get bruteForce => 'Don\'t Know the Number?';
 
 	/// en: 'Result'
 	String get result => 'Result';
@@ -135,20 +135,20 @@ class TranslationsCaesarEn {
 	/// en: 'Copy'
 	String get copyResult => 'Copy';
 
-	/// en: 'Copied to clipboard!'
-	String get copied => 'Copied to clipboard!';
+	/// en: 'Copied!'
+	String get copied => 'Copied!';
 
-	/// en: 'Please enter some text first.'
-	String get errorEmptyInput => 'Please enter some text first.';
+	/// en: 'Please type a message first.'
+	String get errorEmptyInput => 'Please type a message first.';
 
-	/// en: 'Input contains invalid characters for selected language.'
-	String get errorInvalidInput => 'Input contains invalid characters for selected language.';
+	/// en: 'Your message has characters that don't work with the selected language.'
+	String get errorInvalidInput => 'Your message has characters that don\'t work with the selected language.';
 
-	/// en: 'All Possible Shifts'
-	String get bruteForceTitle => 'All Possible Shifts';
+	/// en: 'All Possible Results'
+	String get bruteForceTitle => 'All Possible Results';
 
-	/// en: 'Shift'
-	String get shiftPrefix => 'Shift';
+	/// en: 'Lock No.'
+	String get shiftPrefix => 'Lock No.';
 }
 
 // Path: vigenere
@@ -159,20 +159,20 @@ class TranslationsVigenereEn {
 
 	// Translations
 
-	/// en: 'Vigenère Cipher'
-	String get title => 'Vigenère Cipher';
+	/// en: 'Vigenère Code'
+	String get title => 'Vigenère Code';
 
-	/// en: 'Plaintext / Ciphertext'
-	String get inputLabel => 'Plaintext / Ciphertext';
+	/// en: 'Your Message'
+	String get inputLabel => 'Your Message';
 
-	/// en: 'Enter text to encrypt or decrypt...'
-	String get inputHint => 'Enter text to encrypt or decrypt...';
+	/// en: 'Type the message you want to encrypt or decrypt...'
+	String get inputHint => 'Type the message you want to encrypt or decrypt...';
 
-	/// en: 'Encryption Key'
-	String get keyLabel => 'Encryption Key';
+	/// en: 'Secret Word'
+	String get keyLabel => 'Secret Word';
 
-	/// en: 'Enter key (letters only)...'
-	String get keyHint => 'Enter key (letters only)...';
+	/// en: 'Enter your secret word (letters only)...'
+	String get keyHint => 'Enter your secret word (letters only)...';
 
 	/// en: 'Encrypt'
 	String get encrypt => 'Encrypt';
@@ -189,26 +189,26 @@ class TranslationsVigenereEn {
 	/// en: 'Copy'
 	String get copyResult => 'Copy';
 
-	/// en: 'Copied to clipboard!'
-	String get copied => 'Copied to clipboard!';
+	/// en: 'Copied!'
+	String get copied => 'Copied!';
 
-	/// en: 'Please enter some text first.'
-	String get errorEmptyInput => 'Please enter some text first.';
+	/// en: 'Please type a message first.'
+	String get errorEmptyInput => 'Please type a message first.';
 
-	/// en: 'Please enter an encryption key.'
-	String get errorEmptyKey => 'Please enter an encryption key.';
+	/// en: 'Please enter your secret word.'
+	String get errorEmptyKey => 'Please enter your secret word.';
 
-	/// en: 'Input contains invalid characters for selected language.'
-	String get errorInvalidInput => 'Input contains invalid characters for selected language.';
+	/// en: 'Your message has characters that don't work with the selected language.'
+	String get errorInvalidInput => 'Your message has characters that don\'t work with the selected language.';
 
-	/// en: 'Key contains invalid characters for selected language.'
-	String get errorInvalidKey => 'Key contains invalid characters for selected language.';
+	/// en: 'Secret word must contains only letters.'
+	String get errorInvalidKey => 'Secret word must contains only letters.';
 
-	/// en: 'Tabula Recta'
-	String get tabulaRecta => 'Tabula Recta';
+	/// en: 'Letter Matching Table'
+	String get tabulaRecta => 'Letter Matching Table';
 
-	/// en: 'Step-by-Step'
-	String get stepByStep => 'Step-by-Step';
+	/// en: 'How was it locked?'
+	String get stepByStep => 'How was it locked?';
 
 	/// en: 'Encryption Steps'
 	String get stepTitleEncrypt => 'Encryption Steps';
@@ -216,14 +216,14 @@ class TranslationsVigenereEn {
 	/// en: 'Decryption Steps'
 	String get stepTitleDecrypt => 'Decryption Steps';
 
-	/// en: 'Key Row'
-	String get stepRow => 'Key Row';
+	/// en: 'Secret Word Letter'
+	String get stepRow => 'Secret Word Letter';
 
-	/// en: 'Text Column'
-	String get stepCol => 'Text Column';
+	/// en: 'Message Letter'
+	String get stepCol => 'Message Letter';
 
-	/// en: 'Result'
-	String get stepResult => 'Result';
+	/// en: 'Output'
+	String get stepResult => 'Output';
 
 	/// en: 'Show Table'
 	String get showTable => 'Show Table';
@@ -231,8 +231,8 @@ class TranslationsVigenereEn {
 	/// en: 'Hide Table'
 	String get hideTable => 'Hide Table';
 
-	/// en: 'Animate steps'
-	String get animateResult => 'Animate steps';
+	/// en: 'Show step by step'
+	String get animateResult => 'Show step by step';
 }
 
 // Path: common
@@ -258,8 +258,8 @@ class TranslationsCommonEn {
 	/// en: 'Back'
 	String get back => 'Back';
 
-	/// en: 'Launch →'
-	String get launch => 'Launch →';
+	/// en: 'Let's Go →'
+	String get launch => 'Let\'s Go →';
 }
 
 // Path: errors
@@ -270,8 +270,8 @@ class TranslationsErrorsEn {
 
 	// Translations
 
-	/// en: 'Unable to save your preferences.'
-	String get cache => 'Unable to save your preferences.';
+	/// en: 'Couldn't save your preferences.'
+	String get cache => 'Couldn\'t save your preferences.';
 }
 
 // Path: home.caesar
@@ -282,11 +282,11 @@ class TranslationsHomeCaesarEn {
 
 	// Translations
 
-	/// en: 'Caesar Cipher'
-	String get title => 'Caesar Cipher';
+	/// en: 'Caesar Code'
+	String get title => 'Caesar Code';
 
-	/// en: 'Single-shift substitution cipher using alphabet rotation'
-	String get description => 'Single-shift substitution cipher using alphabet rotation';
+	/// en: 'Locks your message using a number — each letter shifts by that many steps'
+	String get description => 'Locks your message using a number — each letter shifts by that many steps';
 }
 
 // Path: home.vigenere
@@ -297,11 +297,11 @@ class TranslationsHomeVigenereEn {
 
 	// Translations
 
-	/// en: 'Vigenère Cipher'
-	String get title => 'Vigenère Cipher';
+	/// en: 'Vigenère Code'
+	String get title => 'Vigenère Code';
 
-	/// en: 'Polyalphabetic cipher using a 2D Tabula Recta matrix'
-	String get description => 'Polyalphabetic cipher using a 2D Tabula Recta matrix';
+	/// en: 'Locks your message using a secret word — much harder to crack than a number'
+	String get description => 'Locks your message using a secret word — much harder to crack than a number';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -316,59 +316,59 @@ extension on Translations {
 			'splash.title' => 'CIPHER LAB',
 			'splash.tagline' => 'Secure Your Thoughts',
 			'home.title' => 'Encryption Lab',
-			'home.subtitle' => 'Classical Cipher Algorithms',
-			'home.chooseCipher' => 'Choose an Algorithm',
-			'home.caesar.title' => 'Caesar Cipher',
-			'home.caesar.description' => 'Single-shift substitution cipher using alphabet rotation',
-			'home.vigenere.title' => 'Vigenère Cipher',
-			'home.vigenere.description' => 'Polyalphabetic cipher using a 2D Tabula Recta matrix',
-			'caesar.title' => 'Caesar Cipher',
-			'caesar.inputLabel' => 'Plaintext / Ciphertext',
-			'caesar.inputHint' => 'Enter text to encrypt or decrypt...',
-			'caesar.shiftLabel' => 'Shift Value',
+			'home.subtitle' => 'Pick a way to lock your message',
+			'home.chooseCipher' => 'How do you want to lock it?',
+			'home.caesar.title' => 'Caesar Code',
+			'home.caesar.description' => 'Locks your message using a number — each letter shifts by that many steps',
+			'home.vigenere.title' => 'Vigenère Code',
+			'home.vigenere.description' => 'Locks your message using a secret word — much harder to crack than a number',
+			'caesar.title' => 'Caesar Code',
+			'caesar.inputLabel' => 'Your Message',
+			'caesar.inputHint' => 'Type the message you want to encrypt or decrypt...',
+			'caesar.shiftLabel' => 'Select Lock Number',
 			'caesar.encrypt' => 'Encrypt',
 			'caesar.decrypt' => 'Decrypt',
-			'caesar.bruteForce' => 'Brute Force',
+			'caesar.bruteForce' => 'Don\'t Know the Number?',
 			'caesar.result' => 'Result',
 			'caesar.clearInput' => 'Clear',
 			'caesar.copyResult' => 'Copy',
-			'caesar.copied' => 'Copied to clipboard!',
-			'caesar.errorEmptyInput' => 'Please enter some text first.',
-			'caesar.errorInvalidInput' => 'Input contains invalid characters for selected language.',
-			'caesar.bruteForceTitle' => 'All Possible Shifts',
-			'caesar.shiftPrefix' => 'Shift',
-			'vigenere.title' => 'Vigenère Cipher',
-			'vigenere.inputLabel' => 'Plaintext / Ciphertext',
-			'vigenere.inputHint' => 'Enter text to encrypt or decrypt...',
-			'vigenere.keyLabel' => 'Encryption Key',
-			'vigenere.keyHint' => 'Enter key (letters only)...',
+			'caesar.copied' => 'Copied!',
+			'caesar.errorEmptyInput' => 'Please type a message first.',
+			'caesar.errorInvalidInput' => 'Your message has characters that don\'t work with the selected language.',
+			'caesar.bruteForceTitle' => 'All Possible Results',
+			'caesar.shiftPrefix' => 'Lock No.',
+			'vigenere.title' => 'Vigenère Code',
+			'vigenere.inputLabel' => 'Your Message',
+			'vigenere.inputHint' => 'Type the message you want to encrypt or decrypt...',
+			'vigenere.keyLabel' => 'Secret Word',
+			'vigenere.keyHint' => 'Enter your secret word (letters only)...',
 			'vigenere.encrypt' => 'Encrypt',
 			'vigenere.decrypt' => 'Decrypt',
 			'vigenere.result' => 'Result',
 			'vigenere.clearInput' => 'Clear',
 			'vigenere.copyResult' => 'Copy',
-			'vigenere.copied' => 'Copied to clipboard!',
-			'vigenere.errorEmptyInput' => 'Please enter some text first.',
-			'vigenere.errorEmptyKey' => 'Please enter an encryption key.',
-			'vigenere.errorInvalidInput' => 'Input contains invalid characters for selected language.',
-			'vigenere.errorInvalidKey' => 'Key contains invalid characters for selected language.',
-			'vigenere.tabulaRecta' => 'Tabula Recta',
-			'vigenere.stepByStep' => 'Step-by-Step',
+			'vigenere.copied' => 'Copied!',
+			'vigenere.errorEmptyInput' => 'Please type a message first.',
+			'vigenere.errorEmptyKey' => 'Please enter your secret word.',
+			'vigenere.errorInvalidInput' => 'Your message has characters that don\'t work with the selected language.',
+			'vigenere.errorInvalidKey' => 'Secret word must contains only letters.',
+			'vigenere.tabulaRecta' => 'Letter Matching Table',
+			'vigenere.stepByStep' => 'How was it locked?',
 			'vigenere.stepTitleEncrypt' => 'Encryption Steps',
 			'vigenere.stepTitleDecrypt' => 'Decryption Steps',
-			'vigenere.stepRow' => 'Key Row',
-			'vigenere.stepCol' => 'Text Column',
-			'vigenere.stepResult' => 'Result',
+			'vigenere.stepRow' => 'Secret Word Letter',
+			'vigenere.stepCol' => 'Message Letter',
+			'vigenere.stepResult' => 'Output',
 			'vigenere.showTable' => 'Show Table',
 			'vigenere.hideTable' => 'Hide Table',
-			'vigenere.animateResult' => 'Animate steps',
+			'vigenere.animateResult' => 'Show step by step',
 			'common.english' => 'English',
 			'common.arabic' => 'Arabic',
 			'common.darkMode' => 'Dark Mode',
 			'common.lightMode' => 'Light Mode',
 			'common.back' => 'Back',
-			'common.launch' => 'Launch →',
-			'errors.cache' => 'Unable to save your preferences.',
+			'common.launch' => 'Let\'s Go →',
+			'errors.cache' => 'Couldn\'t save your preferences.',
 			_ => null,
 		};
 	}

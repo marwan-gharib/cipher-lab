@@ -21,6 +21,11 @@ class AppColors {
   static const Color lightSurfaceVariant = Color(0xFFE8EEFF);
   static const Color lightCardSurface = Color(0xFFDDE4FF);
 
+  static const Color lightNeonCyan = Color(0xFF006B7D);
+  static const Color lightNeonPurple = Color(0xFF7B1FA2);
+  static const Color lightNeonGreen = Color(0xFF2E7D32);
+  static const Color lightNeonPink = Color(0xFFC2185B);
+
   // ── Primary ──────────────────────────────────────────────────
   static const Color primary = neonCyan;
   static const Color primaryVariant = Color(0xFF007AB8);
@@ -43,6 +48,12 @@ class AppColors {
   static const Color glassBorder = Color(0x40FFFFFF);
   static const Color glassBlack = Color(0x1A000000);
 
+  // ── Light Glassmorphism ───────────────────────────────────────
+  static const Color lightGlassWhite = Color(0x33000000);
+  static const Color lightGlassWhiteStrong = Color(0x66000000);
+  static const Color lightGlassBorder = Color(0x22000000);
+  static const Color lightGlassBlack = Color(0x0A000000);
+
   // ── State Colors ──────────────────────────────────────────────
   static const Color success = neonGreen;
   static const Color error = neonPink;
@@ -58,4 +69,14 @@ class AppColors {
   static const Color tableRowHighlight = Color(0x5500F5FF);
   static const Color tableColHighlight = Color(0x55BD00FF);
   static const Color tableCellHighlight = Color(0xFF39FF14);
+
+  // ── Light Table Highlight ─────────────────────────────────────
+  static const Color lightTableRowHighlight = Color(0x33006B7D);
+  static const Color lightTableColHighlight = Color(0x337B1FA2);
+
+  // ── Gradient Backgrounds ──────────────────────────────────────
+  static const Color lightGradientBackground =
+      Color.fromARGB(255, 188, 191, 202);
+  static const Color darkGradientBackground =
+      Color.fromARGB(255, 24, 67, 186);
 }

@@ -87,7 +87,8 @@ class _VigenereInputSectionState extends State<VigenereInputSection> {
             Switch.adaptive(
               value: state.shouldAnimate,
               activeThumbColor: context.cyberColors.neonCyan,
-              activeTrackColor: context.cyberColors.neonCyan.withValues(alpha: 0.3),
+              activeTrackColor:
+                  context.cyberColors.neonCyan.withValues(alpha: 0.3),
               inactiveThumbColor: context.colorScheme.outline,
               inactiveTrackColor: context.colorScheme.surfaceContainerHighest,
               onChanged: (val) =>
@@ -102,18 +103,38 @@ class _VigenereInputSectionState extends State<VigenereInputSection> {
   Widget _buildActionRow(BuildContext context) {
     final t = context.t;
     return BlocBuilder<VigenereCubit, VigenereState>(
-      buildWhen: (prev, next) => prev.isAnimating != next.isAnimating,
+      buildWhen: (prev, next) =>
+          prev.isAnimating != next.isAnimating ||
+          prev.key != next.key ||
+          prev.input != next.input,
       builder: (context, state) {
         final isAnimating = state.isAnimating;
+        final isInputMissing = state.input.isEmpty || state.key.isEmpty;
+
+        void handleAction(bool isEncrypt) {
+          if (!widget.language.containsLettersOnly(state.key)) {
+            context.showSnackBar(
+              t.vigenere.errorInvalidKey,
+              isError: true,
+            );
+            return;
+          }
+          if (isEncrypt) {
+            context.read<VigenereCubit>().encrypt(widget.language);
+          } else {
+            context.read<VigenereCubit>().decrypt(widget.language);
+          }
+        }
+
         return Row(
           children: [
             Expanded(
               child: NeonButton(
                 label: t.vigenere.encrypt,
                 icon: Icons.lock_rounded,
-                onPressed: isAnimating
+                onPressed: isAnimating || isInputMissing
                     ? null
-                    : () => context.read<VigenereCubit>().encrypt(widget.language),
+                    : () => handleAction(true),
                 color: context.cyberColors.neonCyan,
               ),
             ),
@@ -122,9 +143,9 @@ class _VigenereInputSectionState extends State<VigenereInputSection> {
               child: NeonButton(
                 label: t.vigenere.decrypt,
                 icon: Icons.lock_open_rounded,
-                onPressed: isAnimating
+                onPressed: isAnimating || isInputMissing
                     ? null
-                    : () => context.read<VigenereCubit>().decrypt(widget.language),
+                    : () => handleAction(false),
                 color: context.cyberColors.neonPurple,
               ),
             ),

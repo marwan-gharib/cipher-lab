@@ -6,6 +6,7 @@ import '../../../theme/extentions/cyber_colors_ext.dart';
 import '../../../theme/extentions/cyber_text_styles_ext.dart';
 import '../../cubits/locale/locale_cubit.dart';
 import '../../domain/enums/app_language.dart';
+import '../../widgets/custom_snack_bar.dart';
 
 extension ContextExtensions on BuildContext {
   Translations get t => TranslationProvider.of(this).translations;
@@ -21,11 +22,6 @@ extension ContextExtensions on BuildContext {
   AppLanguage get locale => read<LocaleCubit>().state.language;
 
   void showSnackBar(String message, {bool isError = false}) {
-    ScaffoldMessenger.of(this).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: isError ? Theme.of(this).colorScheme.error : null,
-      ),
-    );
+    CustomSnackBar.show(this, message: message, isError: isError);
   }
 }

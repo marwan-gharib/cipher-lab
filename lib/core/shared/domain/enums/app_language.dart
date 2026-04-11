@@ -1,22 +1,21 @@
 import 'package:encryption_caeser_vigenere/core/constants/app_constants.dart';
-import 'package:encryption_caeser_vigenere/i18n/strings.g.dart';
 
 enum AppLanguage {
   english,
   arabic;
 
-  static AppLanguage fromDeviceLocale() {
-    final deviceLocale = AppLocaleUtils.findDeviceLocale();
-    return switch (deviceLocale) {
-      AppLocale.en => AppLanguage.english,
-      AppLocale.ar => AppLanguage.arabic,
-    };
-  }
-
   List<String> get alphabet => switch (this) {
         AppLanguage.english => AppConstants.englishAlphabet,
         AppLanguage.arabic => AppConstants.arabicAlphabet,
       };
+
+  bool containsLettersOnly(String text) {
+    if (text.isEmpty) return false;
+    return switch (this) {
+      AppLanguage.english => RegExp(r'^[a-zA-Z]+$').hasMatch(text),
+      AppLanguage.arabic => RegExp(r'^[\u0600-\u06FF]+$').hasMatch(text),
+    };
+  }
 
   List<List<String>> get tabulaRecta => switch (this) {
         AppLanguage.english => AppConstants.englishTabulaRecta,

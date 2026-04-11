@@ -36,6 +36,7 @@ class DarkTheme {
     neonPurple: AppColors.neonPurple,
     neonGreen: AppColors.neonGreen,
     neonPink: AppColors.neonPink,
+    backgroundGradientColor: AppColors.darkGradientBackground,
     glassWhite: AppColors.glassWhite,
     glassWhiteStrong: AppColors.glassWhiteStrong,
     glassBorder: AppColors.glassBorder,

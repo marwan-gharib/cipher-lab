@@ -56,11 +56,13 @@ class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
             end: _bottomAlignment.value,
             colors: [
               context.colorScheme.surface,
-              context.colorScheme.surface,
               context.isDarkMode
-                  ? context.cyberColors.neonPurple
-                  : context.cyberColors.neonCyan,
-              context.colorScheme.surface,
+                  ? context.colorScheme.surface
+                  : context.cyberColors.backgroundGradientColor,
+              context.cyberColors.backgroundGradientColor,
+              context.isDarkMode
+                  ? context.colorScheme.surface
+                  : context.cyberColors.backgroundGradientColor,
               context.colorScheme.surface,
             ],
           ),

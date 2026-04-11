@@ -67,9 +67,13 @@ class TabulaRectaCell extends StatelessWidget {
         letter.toUpperCase(),
         style: context.cyberText.cipherSmall.copyWith(
           fontSize: 12,
-          color: (isRowHeader || isColHeader || isHighlighted)
+          color: isHighlighted
               ? Colors.white
-              : context.colorScheme.onSurface.withValues(alpha: 0.7),
+              : (isRowHeader || isColHeader)
+                  ? (context.isDarkMode
+                      ? Colors.white
+                      : context.colorScheme.onSurface)
+                  : context.colorScheme.onSurface.withValues(alpha: 0.7),
           fontWeight: (isRowHeader || isColHeader || isHighlighted)
               ? FontWeight.bold
               : FontWeight.normal,

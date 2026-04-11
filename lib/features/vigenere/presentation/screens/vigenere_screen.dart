@@ -80,7 +80,8 @@ class VigenereScreen extends StatelessWidget {
             icon: state.showTable
                 ? Icons.visibility_off_rounded
                 : Icons.visibility_rounded,
-            onPressed: () => context.read<VigenereCubit>().toggleShowTable(),
+            onPressed: () =>
+                context.read<VigenereCubit>().toggleShowTable(language),
             color: context.cyberColors.neonCyan,
           ),
         );

@@ -23,11 +23,11 @@ class LocaleCubit extends Cubit<LocaleState> {
       if (cached != null) {
         return AppLanguage.values.firstWhere(
           (l) => l.localeCode == cached,
-          orElse: () => AppLanguage.fromDeviceLocale(),
+          orElse: () => AppLanguage.english,
         );
       }
     } catch (_) {}
-    return AppLanguage.fromDeviceLocale();
+    return AppLanguage.english;
   }
 
   Future<void> toggleLanguage() async {

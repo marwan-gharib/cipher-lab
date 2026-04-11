@@ -29,17 +29,18 @@ class LightTheme {
   );
 
   static const CyberColors _cyberColors = CyberColors(
-    neonCyan: AppColors.primaryVariant,
-    neonPurple: AppColors.neonPurple,
-    neonGreen: AppColors.neonGreen,
-    neonPink: AppColors.neonPink,
-    glassWhite: Color(0x33000000),
-    glassWhiteStrong: Color(0x66000000),
-    glassBorder: Color(0x22000000),
-    glassBlack: Color(0x0A000000),
-    tableRowHighlight: Color(0x33007AB8),
-    tableColHighlight: Color(0x33BD00FF),
-    tableCellHighlight: Color(0xFF39FF14),
+    neonCyan: AppColors.lightNeonCyan,
+    neonPurple: AppColors.lightNeonPurple,
+    neonGreen: AppColors.lightNeonGreen,
+    neonPink: AppColors.lightNeonPink,
+    glassWhite: AppColors.lightGlassWhite,
+    backgroundGradientColor: AppColors.lightGradientBackground,
+    glassWhiteStrong: AppColors.lightGlassWhiteStrong,
+    glassBorder: AppColors.lightGlassBorder,
+    glassBlack: AppColors.lightGlassBlack,
+    tableRowHighlight: AppColors.lightTableRowHighlight,
+    tableColHighlight: AppColors.lightTableColHighlight,
+    tableCellHighlight: AppColors.lightNeonGreen,
   );
 
   static final CyberTextStyles _cyberTextStyles = CyberTextStyles(

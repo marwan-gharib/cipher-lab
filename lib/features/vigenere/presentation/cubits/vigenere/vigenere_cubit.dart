@@ -29,7 +29,12 @@ class VigenereCubit extends Cubit<VigenereState> {
   void updateKey(String value) =>
       emit(state.copyWith(key: value, clearResult: true, clearError: true));
 
-  void toggleShowTable() => emit(state.copyWith(showTable: !state.showTable));
+  void toggleShowTable(AppLanguage language) => emit(
+        state.copyWith(
+          showTable: !state.showTable,
+          tabulaRecta: language.tabulaRecta,
+        ),
+      );
 
   void toggleAnimation(bool value) =>
       emit(state.copyWith(shouldAnimate: value));

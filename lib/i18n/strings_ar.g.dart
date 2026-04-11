@@ -63,8 +63,8 @@ class _TranslationsSplashAr implements TranslationsSplashEn {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'مختبر التشفير';
-	@override String get tagline => 'أمن أفكارك';
+	@override String get title => 'مختبر الشفرات';
+	@override String get tagline => 'شفر رسالتك بأمان';
 }
 
 // Path: home
@@ -74,9 +74,9 @@ class _TranslationsHomeAr implements TranslationsHomeEn {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'مختبر التشفير';
-	@override String get subtitle => 'خوارزميات التشفير الكلاسيكية';
-	@override String get chooseCipher => 'اختر خوارزمية';
+	@override String get title => 'مختبر الشفرات';
+	@override String get subtitle => 'اختر طريقة لقفل رسالتك';
+	@override String get chooseCipher => 'كيف تريد قفلها؟';
 	@override late final _TranslationsHomeCaesarAr caesar = _TranslationsHomeCaesarAr._(_root);
 	@override late final _TranslationsHomeVigenereAr vigenere = _TranslationsHomeVigenereAr._(_root);
 }
@@ -89,20 +89,20 @@ class _TranslationsCaesarAr implements TranslationsCaesarEn {
 
 	// Translations
 	@override String get title => 'شفرة قيصر';
-	@override String get inputLabel => 'النص (الأصلي أو المشفر)';
-	@override String get inputHint => 'أدخل النص الذي ترغب في تشفيره أو فك تشفيره...';
-	@override String get shiftLabel => 'مقدار الإزاحة';
+	@override String get inputLabel => 'رسالتك';
+	@override String get inputHint => 'اكتب الرسالة التي تريد تشفيرها أو فك تشفيرها...';
+	@override String get shiftLabel => 'حدد رقم القفل';
 	@override String get encrypt => 'تشفير';
 	@override String get decrypt => 'فك التشفير';
-	@override String get bruteForce => 'تجربة كل الاحتمالات';
+	@override String get bruteForce => 'لا تعرف رقم القفل؟';
 	@override String get result => 'النتيجة';
 	@override String get clearInput => 'مسح';
 	@override String get copyResult => 'نسخ';
-	@override String get copied => 'تم النسخ إلى الحافظة!';
-	@override String get errorEmptyInput => 'الرجاء إدخال نص أولاً.';
-	@override String get errorInvalidInput => 'المدخلات تحتوي على أحرف غير صالحة للغة المختارة.';
-	@override String get bruteForceTitle => 'جميع التجارب الممكنة';
-	@override String get shiftPrefix => 'إزاحة';
+	@override String get copied => 'تم النسخ!';
+	@override String get errorEmptyInput => 'يرجى كتابة رسالة أولاً.';
+	@override String get errorInvalidInput => 'تحتوي رسالتك على أحرف لا تدعمها اللغة المختارة.';
+	@override String get bruteForceTitle => 'جميع النتائج المحتملة';
+	@override String get shiftPrefix => 'رقم القفل';
 }
 
 // Path: vigenere
@@ -113,30 +113,30 @@ class _TranslationsVigenereAr implements TranslationsVigenereEn {
 
 	// Translations
 	@override String get title => 'شفرة فيجينير';
-	@override String get inputLabel => 'النص (الأصلي أو المشفر)';
-	@override String get inputHint => 'أدخل النص الذي ترغب في تشفيره أو فك تشفيره...';
-	@override String get keyLabel => 'كلمة السر (المفتاح)';
-	@override String get keyHint => 'أدخل كلمة السر (أحرف فقط)...';
+	@override String get inputLabel => 'رسالتك';
+	@override String get inputHint => 'اكتب الرسالة التي تريد تشفيرها أو فك تشفيرها...';
+	@override String get keyLabel => 'الكلمة السرية';
+	@override String get keyHint => 'أدخل الكلمة السرية الخاصة بك (أحرف فقط)...';
 	@override String get encrypt => 'تشفير';
 	@override String get decrypt => 'فك التشفير';
 	@override String get result => 'النتيجة';
 	@override String get clearInput => 'مسح';
 	@override String get copyResult => 'نسخ';
-	@override String get copied => 'تم النسخ إلى الحافظة!';
-	@override String get errorEmptyInput => 'الرجاء إدخال نص أولاً.';
-	@override String get errorEmptyKey => 'الرجاء إدخال مفتاح التشفير.';
-	@override String get errorInvalidInput => 'المدخلات تحتوي على أحرف غير صالحة للغة المختارة.';
-	@override String get errorInvalidKey => 'كلمة السر تحتوي على أحرف غير صالحة للغة المختارة.';
-	@override String get tabulaRecta => 'جدول مصفوفة فيجينير';
-	@override String get stepByStep => 'خطوة بخطوة';
+	@override String get copied => 'تم النسخ!';
+	@override String get errorEmptyInput => 'يرجى كتابة رسالة أولاً.';
+	@override String get errorEmptyKey => 'يرجى إدخال الكلمة السرية الخاصة بك.';
+	@override String get errorInvalidInput => 'تحتوي رسالتك على أحرف لا تدعمها اللغة المختارة.';
+	@override String get errorInvalidKey => 'الكلمة السرية يجب أن تحتوي على أحرف فقط.';
+	@override String get tabulaRecta => 'جدول تطابق الأحرف';
+	@override String get stepByStep => 'كيف تمّ القفل؟';
 	@override String get stepTitleEncrypt => 'خطوات التشفير';
 	@override String get stepTitleDecrypt => 'خطوات فك التشفير';
-	@override String get stepRow => 'صف المفتاح';
-	@override String get stepCol => 'عمود النص';
-	@override String get stepResult => 'النتيجة';
-	@override String get showTable => 'إظهار الجدول';
+	@override String get stepRow => 'حرف من الكلمة السرية';
+	@override String get stepCol => 'حرف من الرسالة';
+	@override String get stepResult => 'الناتج';
+	@override String get showTable => 'عرض الجدول';
 	@override String get hideTable => 'إخفاء الجدول';
-	@override String get animateResult => 'عرض الخطوات تدريجياً';
+	@override String get animateResult => 'عرض خطوة بخطوة';
 }
 
 // Path: common
@@ -151,7 +151,7 @@ class _TranslationsCommonAr implements TranslationsCommonEn {
 	@override String get darkMode => 'الوضع الداكن';
 	@override String get lightMode => 'الوضع الفاتح';
 	@override String get back => 'رجوع';
-	@override String get launch => 'ابدأ ←';
+	@override String get launch => 'لنبدأ ←';
 }
 
 // Path: errors
@@ -161,7 +161,7 @@ class _TranslationsErrorsAr implements TranslationsErrorsEn {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get cache => 'تعذر حفظ إعداداتك المفضلة.';
+	@override String get cache => 'تعذّر حفظ إعداداتك.';
 }
 
 // Path: home.caesar
@@ -172,7 +172,7 @@ class _TranslationsHomeCaesarAr implements TranslationsHomeCaesarEn {
 
 	// Translations
 	@override String get title => 'شفرة قيصر';
-	@override String get description => 'تشفير يعتمد على إزاحة حروف الأبجدية بمقدار ثابت';
+	@override String get description => 'تقفل رسالتك باستخدام رقم — كل حرف ينتقل بعدد خطوات تحددها';
 }
 
 // Path: home.vigenere
@@ -183,7 +183,7 @@ class _TranslationsHomeVigenereAr implements TranslationsHomeVigenereEn {
 
 	// Translations
 	@override String get title => 'شفرة فيجينير';
-	@override String get description => 'تشفير متعدد الأبجديات يستخدم كلمة سر لتغيير نمط التشفير';
+	@override String get description => 'تقفل رسالتك باستخدام كلمة مرور — أصعب بكثير في الكسر من مجرد رقم';
 }
 
 /// The flat map containing all translations for locale <ar>.
@@ -195,62 +195,62 @@ extension on TranslationsAr {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'app.title' => 'CipherX',
-			'splash.title' => 'مختبر التشفير',
-			'splash.tagline' => 'أمن أفكارك',
-			'home.title' => 'مختبر التشفير',
-			'home.subtitle' => 'خوارزميات التشفير الكلاسيكية',
-			'home.chooseCipher' => 'اختر خوارزمية',
+			'splash.title' => 'مختبر الشفرات',
+			'splash.tagline' => 'شفر رسالتك بأمان',
+			'home.title' => 'مختبر الشفرات',
+			'home.subtitle' => 'اختر طريقة لقفل رسالتك',
+			'home.chooseCipher' => 'كيف تريد قفلها؟',
 			'home.caesar.title' => 'شفرة قيصر',
-			'home.caesar.description' => 'تشفير يعتمد على إزاحة حروف الأبجدية بمقدار ثابت',
+			'home.caesar.description' => 'تقفل رسالتك باستخدام رقم — كل حرف ينتقل بعدد خطوات تحددها',
 			'home.vigenere.title' => 'شفرة فيجينير',
-			'home.vigenere.description' => 'تشفير متعدد الأبجديات يستخدم كلمة سر لتغيير نمط التشفير',
+			'home.vigenere.description' => 'تقفل رسالتك باستخدام كلمة مرور — أصعب بكثير في الكسر من مجرد رقم',
 			'caesar.title' => 'شفرة قيصر',
-			'caesar.inputLabel' => 'النص (الأصلي أو المشفر)',
-			'caesar.inputHint' => 'أدخل النص الذي ترغب في تشفيره أو فك تشفيره...',
-			'caesar.shiftLabel' => 'مقدار الإزاحة',
+			'caesar.inputLabel' => 'رسالتك',
+			'caesar.inputHint' => 'اكتب الرسالة التي تريد تشفيرها أو فك تشفيرها...',
+			'caesar.shiftLabel' => 'حدد رقم القفل',
 			'caesar.encrypt' => 'تشفير',
 			'caesar.decrypt' => 'فك التشفير',
-			'caesar.bruteForce' => 'تجربة كل الاحتمالات',
+			'caesar.bruteForce' => 'لا تعرف رقم القفل؟',
 			'caesar.result' => 'النتيجة',
 			'caesar.clearInput' => 'مسح',
 			'caesar.copyResult' => 'نسخ',
-			'caesar.copied' => 'تم النسخ إلى الحافظة!',
-			'caesar.errorEmptyInput' => 'الرجاء إدخال نص أولاً.',
-			'caesar.errorInvalidInput' => 'المدخلات تحتوي على أحرف غير صالحة للغة المختارة.',
-			'caesar.bruteForceTitle' => 'جميع التجارب الممكنة',
-			'caesar.shiftPrefix' => 'إزاحة',
+			'caesar.copied' => 'تم النسخ!',
+			'caesar.errorEmptyInput' => 'يرجى كتابة رسالة أولاً.',
+			'caesar.errorInvalidInput' => 'تحتوي رسالتك على أحرف لا تدعمها اللغة المختارة.',
+			'caesar.bruteForceTitle' => 'جميع النتائج المحتملة',
+			'caesar.shiftPrefix' => 'رقم القفل',
 			'vigenere.title' => 'شفرة فيجينير',
-			'vigenere.inputLabel' => 'النص (الأصلي أو المشفر)',
-			'vigenere.inputHint' => 'أدخل النص الذي ترغب في تشفيره أو فك تشفيره...',
-			'vigenere.keyLabel' => 'كلمة السر (المفتاح)',
-			'vigenere.keyHint' => 'أدخل كلمة السر (أحرف فقط)...',
+			'vigenere.inputLabel' => 'رسالتك',
+			'vigenere.inputHint' => 'اكتب الرسالة التي تريد تشفيرها أو فك تشفيرها...',
+			'vigenere.keyLabel' => 'الكلمة السرية',
+			'vigenere.keyHint' => 'أدخل الكلمة السرية الخاصة بك (أحرف فقط)...',
 			'vigenere.encrypt' => 'تشفير',
 			'vigenere.decrypt' => 'فك التشفير',
 			'vigenere.result' => 'النتيجة',
 			'vigenere.clearInput' => 'مسح',
 			'vigenere.copyResult' => 'نسخ',
-			'vigenere.copied' => 'تم النسخ إلى الحافظة!',
-			'vigenere.errorEmptyInput' => 'الرجاء إدخال نص أولاً.',
-			'vigenere.errorEmptyKey' => 'الرجاء إدخال مفتاح التشفير.',
-			'vigenere.errorInvalidInput' => 'المدخلات تحتوي على أحرف غير صالحة للغة المختارة.',
-			'vigenere.errorInvalidKey' => 'كلمة السر تحتوي على أحرف غير صالحة للغة المختارة.',
-			'vigenere.tabulaRecta' => 'جدول مصفوفة فيجينير',
-			'vigenere.stepByStep' => 'خطوة بخطوة',
+			'vigenere.copied' => 'تم النسخ!',
+			'vigenere.errorEmptyInput' => 'يرجى كتابة رسالة أولاً.',
+			'vigenere.errorEmptyKey' => 'يرجى إدخال الكلمة السرية الخاصة بك.',
+			'vigenere.errorInvalidInput' => 'تحتوي رسالتك على أحرف لا تدعمها اللغة المختارة.',
+			'vigenere.errorInvalidKey' => 'الكلمة السرية يجب أن تحتوي على أحرف فقط.',
+			'vigenere.tabulaRecta' => 'جدول تطابق الأحرف',
+			'vigenere.stepByStep' => 'كيف تمّ القفل؟',
 			'vigenere.stepTitleEncrypt' => 'خطوات التشفير',
 			'vigenere.stepTitleDecrypt' => 'خطوات فك التشفير',
-			'vigenere.stepRow' => 'صف المفتاح',
-			'vigenere.stepCol' => 'عمود النص',
-			'vigenere.stepResult' => 'النتيجة',
-			'vigenere.showTable' => 'إظهار الجدول',
+			'vigenere.stepRow' => 'حرف من الكلمة السرية',
+			'vigenere.stepCol' => 'حرف من الرسالة',
+			'vigenere.stepResult' => 'الناتج',
+			'vigenere.showTable' => 'عرض الجدول',
 			'vigenere.hideTable' => 'إخفاء الجدول',
-			'vigenere.animateResult' => 'عرض الخطوات تدريجياً',
+			'vigenere.animateResult' => 'عرض خطوة بخطوة',
 			'common.english' => 'الإنجليزية',
 			'common.arabic' => 'العربية',
 			'common.darkMode' => 'الوضع الداكن',
 			'common.lightMode' => 'الوضع الفاتح',
 			'common.back' => 'رجوع',
-			'common.launch' => 'ابدأ ←',
-			'errors.cache' => 'تعذر حفظ إعداداتك المفضلة.',
+			'common.launch' => 'لنبدأ ←',
+			'errors.cache' => 'تعذّر حفظ إعداداتك.',
 			_ => null,
 		};
 	}
