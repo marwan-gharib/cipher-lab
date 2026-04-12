@@ -17,6 +17,7 @@ class GlassmorphicContainer extends StatelessWidget {
     this.glowColor,
     this.width,
     this.height,
+    this.isCircle = false,
   });
 
   final Widget child;
@@ -28,6 +29,7 @@ class GlassmorphicContainer extends StatelessWidget {
   final Color? glowColor;
   final double? width;
   final double? height;
+  final bool isCircle;
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +38,20 @@ class GlassmorphicContainer extends StatelessWidget {
       height: height,
       margin: margin,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
+        shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
+        borderRadius: isCircle ? null : BorderRadius.circular(borderRadius),
         boxShadow: glowColor != null
             ? [BoxShadow(color: glowColor!, blurRadius: 20, spreadRadius: 2)]
             : null,
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(borderRadius),
+      child: ClipPath(
+        clipper: isCircle ? const ShapeBorderClipper(shape: CircleBorder()) : null,
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
           child: Container(
             padding: padding,
             decoration: BoxDecoration(
+              shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -56,10 +60,10 @@ class GlassmorphicContainer extends StatelessWidget {
                   context.cyberColors.glassWhite,
                 ],
               ),
-              borderRadius: BorderRadius.circular(borderRadius),
+              borderRadius: isCircle ? null : BorderRadius.circular(borderRadius),
               border: Border.all(
                 color: borderColor ?? context.cyberColors.glassBorder,
-                width: 1.0,
+                width: 2.0,
               ),
             ),
             child: child,
