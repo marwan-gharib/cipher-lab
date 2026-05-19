@@ -116,6 +116,5 @@ We follow a strict **Git Lifecycle**:
 ---
 
 <div align="center">
-  <sub>Built with ❤️ and Precision by the CipherX Team</sub><br/>
   <i>"Cryptography is the art of solving mysteries"</i>
 </div>
