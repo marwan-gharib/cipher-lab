@@ -1,120 +1,98 @@
 <div align="center">
+  <img src="assets/app_logo.png" alt="CipherX Logo" width="150" style="border-radius: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
 
-# 🔐 CipherX : Premium Cryptography Visualizer
+  <h1>🔐 CipherX</h1>
+  <h3>Premium Cryptography Visualizer</h3>
 
-**A high-fidelity, performance-optimized Flutter application showcasing classical encryption algorithms with an immersive Cyberpunk aesthetic and enterprise-grade Clean Architecture.**
+  <p><b>A high-fidelity, performance-optimized Flutter application showcasing classical encryption algorithms through an immersive Cyberpunk aesthetic.</b></p>
 
-[![Flutter Version](https://img.shields.io/badge/Flutter-3.5.0+-02569B?logo=flutter&logoColor=white&style=for-the-badge)](https://flutter.dev/)
-[![Dart Version](https://img.shields.io/badge/Dart-3.5.0+-0175C2?logo=dart&logoColor=white&style=for-the-badge)](https://dart.dev/)
-[![Architecture](https://img.shields.io/badge/Clean_Architecture-Layered-brightgreen?style=for-the-badge)](#-architecture-deep-dive)
-[![State Binding](https://img.shields.io/badge/Bloc_/_Cubit-Reactive-blue?style=for-the-badge)](#-tech-stack)
+  <p>
+    <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Flutter-3.5.0+-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" /></a>
+    <a href="https://dart.dev/"><img src="https://img.shields.io/badge/Dart-3.5.0+-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" /></a>
+    <a href="#-architecture--tech-stack"><img src="https://img.shields.io/badge/Clean_Architecture-Strict-2EA043?style=for-the-badge&logo=clean-code&logoColor=white" alt="Architecture" /></a>
+    <a href="#-architecture--tech-stack"><img src="https://img.shields.io/badge/State-Bloc_/_Cubit-00B4AB?style=for-the-badge&logo=firebase&logoColor=white" alt="State Binding" /></a>
+    <a href="#"><img src="https://img.shields.io/badge/License-MIT-red?style=for-the-badge" alt="License" /></a>
+  </p>
+</div>
+
+<br/>
+
+> **CipherX** is an interactive educational sandbox designed to breathe life into classical cryptography. Unlike basic converters, CipherX visualizes the *process* of encryption with an animated step-by-step breakdown. Built to production-ready standards, it features complex animations, reactive states, and a stunning "cyber-glass" design system.
+
+---
+
+## 📱 Screenshots
+
+<p align="center">
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.29.29%20PM.jpeg" width="170"  style="margin:8px;"/>
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.29.39%20PM.jpeg" width="170"  style="margin:8px;"/>
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.29.57%20PM.jpeg" width="170"  style="margin:8px;"/>
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.30.07%20PM.jpeg" width="170"  style="margin:8px;"/>
+</p>
+
+<div align="center">
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.30.22%20PM.jpeg" width="170"  style="margin:8px;"/>
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.30.35%20PM.jpeg" width="170"  style="margin:8px;"/>
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.30.44%20PM.jpeg" width="170"  style="margin:8px;"/>
+  <img src="assets/screenshots/WhatsApp%20Image%202026-05-20%20at%204.31.00%20PM.jpeg" width="170"  style="margin:8px;"/>
+</div>
+
+---
+
+## ✨ Core Features & UX
+
+| Feature | Description |
+| :--- | :--- |
+| **🛡️ Crypto Visualization** | Real-time shifting with animated brute-force visualization and adaptive Tabula Recta matrices. |
+| **🎨 Visual Excellence** | Curated harmonious palettes featuring *Neon Cyan*, *Deep Purple*, and *Forest Green*. |
+| **🕹️ Dynamic Interaction** | Micro-animations on every touchpoint—scaling selectors, glowing borders, and smooth list centering. |
+| **🪞 Glassmorphism** | Multi-layered circular glass elements with real-time blur and frosted UI components. |
+| **🌍 Bilingual Engine** | Native English (LTR) and Arabic (RTL) support with dynamic regex validation and localization via **Slang**. |
+| **🌓 Dynamic Themes** | Persistent Light/Dark modes with synchronized animated gradients. |
+
+---
+
+## 🏗 Architecture & Tech Stack
+
+CipherX is engineered using a robust **Feature-First Clean Architecture**, ensuring deep separation of concerns and limitless scalability. 
+
+<div align="center">
+
+| Component | Technology Used | Purpose |
+| :--- | :--- | :--- |
+| **Framework** | **[Flutter 3.5.0+](https://flutter.dev/)** | High-performance, cross-platform rendering |
+| **State Mgt.** | **[Bloc / Cubit](https://pub.dev/packages/flutter_bloc)** | Predictable, reactive state emission |
+| **Architecture** | **Clean Architecture** | Strict boundaries (Domain ↔ Data ↔ Presentation) |
+| **Dependency** | **[GetIt](https://pub.dev/packages/get_it)** | Decoupled service location and dependency injection |
+| **Navigation** | **[GoRouter](https://pub.dev/packages/go_router)** | Declarative routing & robust deep-linking capabilities |
+| **Localization** | **[Slang](https://pub.dev/packages/slang)** | Type-safe, high-performance i18n implementation |
 
 </div>
 
 ---
 
-## 📖 Overview
+## 🚀 Quick Start Guide
 
-**CipherX** is an interactive educational sandbox designed to breathe life into classical cryptography. Unlike basic converters, CipherX visualizes the *process* of encryption. Built with **Clean Architecture** and **SOLID** principles, it serves as a production-ready blueprint for Flutter development, featuring complex animations, reactive states, and a stunning "cyber-glass" design system.
-
----
-
-## ✨ Feature Matrix
-
-| Feature | Description | Status |
-| :--- | :--- | :---: |
-| **🛡️ Caesar Cipher** | Real-time shifting with animated brute-force visualization. | ✅ |
-| **🕹️ Premium Selector** | Custom glassy, horizontal scroll shift selector with automatic centering. | ✅ |
-| **🛡️ Vigenère Sandbox** | Adaptive Tabula Recta matrix with step-by-step substitution logic. | ✅ |
-| **🌍 Bilingual Engine** | Native English (LTR) and Arabic (RTL) support with dynamic regex validation. | ✅ |
-| **🌓 Dynamic Themes** | Persistent Light/Dark modes with synchronized animated gradients. | ✅ |
-| **🧪 Clean Architecture** | strict separation of Concern: Data, Domain, and Presentation. | ✅ |
-
----
-
-## 🎨 Design Aesthetic: "The Cyber-Glass"
-
-CipherX isn't just an app; it's an experience. The UI is built on a custom design system focused on **Visual Excellence**:
-
-- **Neon Precision:** Curated harmonious palettes featuring *Neon Cyan*, *Deep Purple*, and *Forest Green*.
-- **Glassmorphism:** Multi-layered circular glass elements with real-time `BackdropFilter` blurring.
-- **Dynamic Interaction:** Micro-animations on every touchpoint—scaling selectors, glowing borders, and smooth list centering.
-- **Visual Comfort:** High-contrast variants optimized for both deep-dark and eye-friendly light modes.
-
----
-
-## 🛠 Tech Stack
-
-| Category | Technology | Purpose |
-| :--- | :--- | :--- |
-| **Core** | [Flutter](https://flutter.dev/) | Cross-platform UI development |
-| **State** | [Bloc / Cubit](https://pub.dev/packages/flutter_bloc) | Reactive, predictable state management |
-| **Architecture** | [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) | Scalable and testable structure |
-| **DI** | [GetIt](https://pub.dev/packages/get_it) | Modularized service location |
-| **Navigation** | [GoRouter](https://pub.dev/packages/go_router) | Declarative routing and deep linking |
-| **Localization** | [Slang](https://pub.dev/packages/slang) | Typed, high-performance i18n |
-| **Persistence** | [Shared Preferences](https://pub.dev/packages/shared_preferences) | Theme and locale caching |
-
----
-
-## 🏗 Architecture Deep Dive
-
-The codebase follows a strict **Feature-First** Clean Architecture approach:
-
-> [!IMPORTANT]
-> **Domain Layer (Pure Dart):** Entities, Repositories (abstract), and Use Cases. Zero dependencies on Flutter or Data layers.
-> **Data Layer:** Repository implementations, Data Sources (API/Local), and DTO Models.
-> **Presentation Layer:** State management (Cubits), UI Screens, and Decomposed Widgets.
-
-### 📁 Directory Layout
-
-```text
-lib/
-├── core/                  # Shared infrastructure (di, routing, theme, error)
-│   ├── shared/            # Common domain objects, regex, and widgets
-│   └── theme/             # Design systems, extensions, and app_theme factories
-├── features/              # Self-contained feature modules
-│   ├── caesar/            # Domain logic, interactive widgets, and state
-│   ├── vigenere/          # Matrix visualizations and step-by-step logic
-│   ├── home/              # Dashboard and navigation logic
-│   └── splash/            # Splash screen
-└── i18n/                  # Slang-generated locale assets
+**1. Clone the repository:**
+```bash
+git clone https://github.com/your-username/encryption_caeser_vigenere.git
+cd encryption_caeser_vigenere
 ```
 
----
+**2. Install dependencies and run code generators:**
+```bash
+flutter pub get
+dart run build_runner build --delete-conflicting-outputs
+```
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Flutter SDK `^3.5.0`
-- `build_runner` for code generation
-
-### Setup
-1. **Clone & Enter:**
-   ```bash
-   git clone https://github.com/your-username/encryption_caeser_vigenere.git && cd encryption_caeser_vigenere
-   ```
-2. **Install & Generate:**
-   ```bash
-   flutter pub get
-   dart run build_runner build --delete-conflicting-outputs
-   ```
-3. **Run:**
-   ```bash
-   flutter run --release # For best performance visualization
-   ```
-
----
-
-## 🤝 Contributing
-
-We follow a strict **Git Lifecycle**:
-1. `feature/` branch naming convention.
-2. Atomic, Conventional Commits.
-3. Code review required for PR merges.
+**3. Launch the visualizer:**
+```bash
+flutter run --release
+```
+> *Note: It is highly recommended to run in `--release` mode to experience the complex animations and glassmorphism smoothly at 60/120fps.*
 
 ---
 
 <div align="center">
-  <i>"Cryptography is the art of solving mysteries"</i>
+  <h3><i>"Cryptography is the art of solving mysteries"</i></h3>
 </div>
